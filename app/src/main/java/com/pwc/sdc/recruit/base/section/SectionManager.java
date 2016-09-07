@@ -66,7 +66,7 @@ public class SectionManager {
         Section section = getTopShowSectionFromList();
         //获取回退栈中的最后一个元素，并弹出
         if (section != null) {
-            remove(section.getContainId(), section);
+            remove(section);
         }
     }
 
@@ -128,7 +128,7 @@ public class SectionManager {
      * @param tag          给newSection 加入一个tag
      * @param addBackStack 是否加入到回退栈
      */
-    public void add(int containId, Section newSection, Section preSection, String tag, boolean addBackStack) {
+    private void add(int containId, Section newSection, Section preSection, String tag, boolean addBackStack) {
         if (isAnimationStart()) {
             Log.d("section", "animation is start, will wait the animation done, then do next action");
             return;
@@ -160,7 +160,7 @@ public class SectionManager {
         showSection(containId, newSection, preSection, true);
     }
 
-    public void add(int containId, Section section, boolean addBackStack) {
+    public void add(int containId, Section section, String tag, boolean addBackStack) {
         Section topShowSection = getTopShowSectionFromList(containId);
         //获取在添加新的section前，正在显示的section
         if (topShowSection == null) {
@@ -168,7 +168,7 @@ public class SectionManager {
             replace(containId, defaultSection, true);
             topShowSection = defaultSection;
         }
-        add(containId, section, topShowSection, null, addBackStack);
+        add(containId, section, topShowSection, tag, addBackStack);
     }
 
     /**
@@ -176,19 +176,18 @@ public class SectionManager {
      *
      * @param section
      */
-    public void remove(int containId, Section section) {
+    public void remove(Section section) {
         if (isAnimationStart()) {
             Log.d("section", "animation is start, will wait the animation done, then do next action");
             return;
         }
         checkNull(section);
-        checkContainerId(containId);
 
         if (!section.isAdded()) {
             Log.d("section", "section is not add, will not do the remove action");
             return;
         }
-
+        int containId = section.getContainId();
         //如果section为当前正在运行的section，则需要调整UI
         if (section.isResume() && section.isShow()) {
             //获取当前栈顶前一个的section，可能为null

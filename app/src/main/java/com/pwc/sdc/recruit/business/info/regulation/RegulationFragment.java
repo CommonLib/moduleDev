@@ -7,6 +7,7 @@ import com.pwc.sdc.recruit.base.BaseFragment;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import de.greenrobot.event.EventBus;
 
 /**
  * @author:dongpo 创建时间: 7/12/2016

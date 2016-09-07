@@ -48,10 +48,6 @@ public class LoginPresenter extends BasePresenter<LoginActivity, LoginMode> impl
     private boolean isExecuted = false;
     private boolean isLogining = false;
 
-    public LoginPresenter(LoginActivity viewLayer, LoginMode modelLayer) {
-        super(viewLayer, modelLayer);
-    }
-
     @Override
     public void switchChinese(String userName, String password) {
         Locale currentLocale = getCurrentLocale();
@@ -133,7 +129,6 @@ public class LoginPresenter extends BasePresenter<LoginActivity, LoginMode> impl
                 isLogining = false;
             }
         });
-
     }
 
     private void switchLanguage(Locale shortName) {

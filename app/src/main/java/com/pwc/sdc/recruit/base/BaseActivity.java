@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +17,11 @@ import com.pwc.sdc.recruit.PwcApplication;
 import com.pwc.sdc.recruit.R;
 import com.pwc.sdc.recruit.base.interf.ActivityPresenter;
 import com.pwc.sdc.recruit.base.section.SectionActivity;
+import com.pwc.sdc.recruit.base.section.SectionManager;
 import com.pwc.sdc.recruit.widget.LoadStateFrameLayout;
 import com.thirdparty.proxy.log.TLog;
 import com.thirdparty.proxy.utils.DialogHelp;
+import com.thirdparty.proxy.utils.TUtil;
 import com.thirdparty.proxy.utils.WindowUtils;
 
 import butterknife.ButterKnife;
@@ -44,16 +45,17 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
      * startFragment中携带的bundle的头信息
      */
     public static final String FRAGMENT_MESSAGE_HEADER = "start_fragment_message_header";
-    private FragmentManager mFragmentManager;
+    private SectionManager mSectionManager;
     private Bundle mObj;
     private View mDialogCustomView;
 
     @Override
     protected void onActivityCreate(Bundle savedInstanceState) {
         PwcApplication.getInstance().addActivity(this);
-        mPresenter = instancePresenter();
+        mPresenter = TUtil.getT(this, 0);
+        mPresenter.setViewLayer(this);
         mInflater = getLayoutInflater();
-        mFragmentManager = getSupportFragmentManager();
+        mSectionManager = getSectionManager();
         setContentView(getLayoutId());
 
         ButterKnife.bind(this);
@@ -276,28 +278,28 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
 
     public AlertDialog showAlertDialog(String message, int resId, View.OnClickListener confirm, View.OnClickListener cancel, int themeId) {
 
-            mDialogCustomView = inflate(resId);
-            AlertDialog.Builder builder = null;
-            if (themeId > 0) {
-                builder = DialogHelp.getMessageDialog(this, mDialogCustomView, themeId);
-            } else {
-                builder = DialogHelp.getMessageDialog(this, mDialogCustomView);
-            }
-            _alertDialog = builder.create();
-            View btnConfirm = mDialogCustomView.findViewById(R.id.dialog_btn_confirm);
-            if (btnConfirm != null && confirm != null) {
-                btnConfirm.setOnClickListener(confirm);
-            }
-            View btnCancel = mDialogCustomView.findViewById(R.id.dialog_btn_cancel);
-            if (btnCancel != null && cancel != null) {
-                btnCancel.setOnClickListener(cancel);
-            }
-            TextView title = (TextView) mDialogCustomView.findViewById(R.id.dialog_tv_title);
-            if (message != null && title != null) {
-                title.setText(message);
-            }
-            _alertDialog.show();
-            return _alertDialog;
+        mDialogCustomView = inflate(resId);
+        AlertDialog.Builder builder = null;
+        if (themeId > 0) {
+            builder = DialogHelp.getMessageDialog(this, mDialogCustomView, themeId);
+        } else {
+            builder = DialogHelp.getMessageDialog(this, mDialogCustomView);
+        }
+        _alertDialog = builder.create();
+        View btnConfirm = mDialogCustomView.findViewById(R.id.dialog_btn_confirm);
+        if (btnConfirm != null && confirm != null) {
+            btnConfirm.setOnClickListener(confirm);
+        }
+        View btnCancel = mDialogCustomView.findViewById(R.id.dialog_btn_cancel);
+        if (btnCancel != null && cancel != null) {
+            btnCancel.setOnClickListener(cancel);
+        }
+        TextView title = (TextView) mDialogCustomView.findViewById(R.id.dialog_tv_title);
+        if (message != null && title != null) {
+            title.setText(message);
+        }
+        _alertDialog.show();
+        return _alertDialog;
 
 
     }
@@ -333,9 +335,8 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
 
     @Override
     public void onBackPressed() {
-        int backCount = mFragmentManager.getBackStackEntryCount();
-        if (backCount > 0) {
-            mFragmentManager.popBackStackImmediate();
+        if (mSectionManager.hasBackStack()) {
+            mSectionManager.popStack();
             return;
         }
         super.onBackPressed();
@@ -427,53 +428,44 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
     public void addFragment(int container, BaseFragment fragment) {
         if (fragment != null && !fragment.isAdded()) {
             String tag = fragment.getClass().getName();
-            //mFragmentManager.beginTransaction().add(container, fragment, tag).commitAllowingStateLoss();
+            mSectionManager.add(container, fragment, tag, false);
         }
     }
 
     public void addFragmentToBackStack(int container, BaseFragment fragment) {
         if (fragment != null && !fragment.isAdded()) {
             String tag = fragment.getClass().getSimpleName();
-            /*mFragmentManager.beginTransaction()
-                    .setCustomAnimations(R.anim.activity_right_in, R.anim.activity_left_out, R.anim.activity_left_in, R.anim.activity_right_out)
-                    .add(container, fragment, tag)
-                    .addToBackStack(null)
-                    .commitAllowingStateLoss();*/
+            mSectionManager.add(container, fragment, tag, true);
         }
     }
 
     public void removeFragment(BaseFragment fragment) {
         if (fragment != null && fragment.isAdded()) {
-            //mFragmentManager.beginTransaction().remove(fragment).commitAllowingStateLoss();
+            mSectionManager.remove(fragment);
         }
     }
 
     public void showFragment(BaseFragment fragment) {
         if (fragment != null && fragment.isAdded()) {
-            //mFragmentManager.beginTransaction().show(fragment).commitAllowingStateLoss();
+            mSectionManager.show(fragment);
         }
     }
 
     public void showFragmentToBackStack(BaseFragment fragment) {
         if (fragment != null && fragment.isAdded()) {
-            /*mFragmentManager.beginTransaction()
-                    .setCustomAnimations(R.anim.activity_right_in, R.anim.activity_left_out, R.anim.activity_left_in, R.anim.activity_right_out)
-                    .show(fragment)
-                    .addToBackStack(null)
-                    .commitAllowingStateLoss();*/
+            mSectionManager.show(fragment, true);
         }
     }
 
     public void hideFragment(BaseFragment fragment) {
         if (fragment != null && fragment.isAdded()) {
-            //mFragmentManager.beginTransaction().hide(fragment).commitAllowingStateLoss();
+            mSectionManager.hide(fragment);
         }
     }
 
     public void replaceFragment(int container, BaseFragment fragment) {
         if (fragment != null) {
-            //mFragmentManager.beginTransaction().replace(container, fragment).commitAllowingStateLoss();
-            getSectionManager().replace(container,fragment,false);
+            getSectionManager().replace(container, fragment, false);
         }
     }
 
@@ -514,7 +506,7 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
 
     public BaseFragment findFragmentByClazz(Class<? extends BaseFragment> clazz) {
         String tag = clazz.getSimpleName();
-//        return (BaseFragment) mFragmentManager.findFragmentByTag(tag);
+//        return (BaseFragment) mSectionManager.findFragmentByTag(tag);
         return (BaseFragment) getSectionManager().findSectionByTag(tag);
     }
 
@@ -536,7 +528,6 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
     }
 
 
-
     protected T getPresenter() {
         return mPresenter;
     }
@@ -546,7 +537,4 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
     protected abstract void initData();
 
     protected abstract int getLayoutId();
-
-    protected abstract T instancePresenter();
-
 }

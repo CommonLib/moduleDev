@@ -21,11 +21,6 @@ public class InfoPresenter extends BasePresenter<InfoActivity, InfoMode> impleme
 
     public IssueView mIssueView;
 
-    public InfoPresenter(InfoActivity viewLayer, InfoMode modelLayer) {
-        super(viewLayer, modelLayer);
-    }
-
-
     @Override
     public void next() {
         if (mIssueView != null) {

@@ -13,10 +13,6 @@ import java.util.List;
 public class MainPresenter extends BasePresenter<MainConstract.View, MainMode> implements MainConstract.Presenter {
 
 
-    public MainPresenter(MainConstract.View viewLayer, MainMode modelLayer) {
-        super(viewLayer, modelLayer);
-    }
-
     @Override
     public void onclick() {
         //处理逻辑

@@ -17,11 +17,15 @@ import com.pwc.sdc.recruit.config.AppConfig;
 import com.pwc.sdc.recruit.constants.Constants;
 import com.pwc.sdc.recruit.data.model.Candidate;
 import com.pwc.sdc.recruit.data.model.CandidateId;
+import com.pwc.sdc.recruit.data.model.UploadInfo;
 import com.pwc.sdc.recruit.manager.CandidateManager;
 import com.thirdparty.proxy.log.TLog;
 import com.thirdparty.proxy.net.http.retrofit.HttpResponse;
 import com.thirdparty.proxy.net.http.retrofit.rx.HttpSubscriber;
 
+import de.greenrobot.event.EventBus;
+import de.greenrobot.event.Subscribe;
+import de.greenrobot.event.ThreadMode;
 import rx.Observable;
 import rx.Subscription;
 
@@ -34,10 +38,6 @@ public class RegulationPresenter extends BasePresenter<RegulationActivity, Regul
 
     private UploadBroadCastReceiver mUploadReceiver;
     private Subscription mUploadResumeConnection;
-
-    public RegulationPresenter(RegulationActivity viewLayer, RegulationMode modelLayer) {
-        super(viewLayer, modelLayer);
-    }
 
     public boolean mIsHideProgressDialog = false;
 
@@ -83,6 +83,7 @@ public class RegulationPresenter extends BasePresenter<RegulationActivity, Regul
 
     @Override
     public void onActivityCreate() {
+        EventBus.getDefault().register(this);
         IntentFilter filter = new IntentFilter();
         filter.addAction(Constants.ACTION_UPLOAD_FAILURE);
         filter.addAction(Constants.ACTION_UPLOAD_SUCCESS);
@@ -96,6 +97,45 @@ public class RegulationPresenter extends BasePresenter<RegulationActivity, Regul
     public void unSubscribe() {
         super.unSubscribe();
         mViewLayer.unregisterReceiver(mUploadReceiver);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MainThread)
+    public void onReceive(UploadInfo info) {
+        if (TextUtils.equals(info.action, Constants.ACTION_UPLOAD_SUCCESS)) {
+            Bundle bundle = mViewLayer.obtainBundle();
+            bundle.putBoolean(Constants.ACTION_SHOW_DIALOG, true);
+            getHandler().post(new Runnable() {
+                @Override
+                public void run() {
+                    if (mViewLayer.isVisible()) {
+                        mViewLayer.hideProgressDialog();
+                    } else {
+                        mIsHideProgressDialog = true;
+                    }
+                }
+            });
+            mViewLayer.startActivity(LoginActivity.class, bundle);
+            mViewLayer.showToast(mViewLayer.getString(R.string.upload_success));
+        } else if (TextUtils.equals(info.action, Constants.ACTION_UPLOAD_FAILURE)) {
+            if (mViewLayer.isVisible()) {
+                mViewLayer.hideProgressDialog();
+            } else {
+                mIsHideProgressDialog = true;
+            }
+            String errorMessage = info.errorMessage;
+            int errorCode = info.errorCode;
+            TLog.d("上传失败" + errorCode + errorMessage);
+            mViewLayer.showToast(mViewLayer.getString(R.string.upload_failure));
+        } else {
+            long totalSize = info.totalSize;
+            long currentSize = info.currentSize;
+            long speed = info.speed;
+            String netSpeed = Formatter.formatFileSize(mViewLayer, speed);
+            int percent = (int) (Math.round(currentSize * 100) * 1.0f / totalSize);
+            if (mViewLayer.isVisible()) {
+                mViewLayer.uploadProgressBar(percent);
+            }
+        }
     }
 
     public class UploadBroadCastReceiver extends BroadcastReceiver {

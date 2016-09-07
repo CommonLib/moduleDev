@@ -32,11 +32,6 @@ public class PhotoActivity extends SingleFragmentActivity<PhotoPresenter> implem
 
     }
 
-    @Override
-    protected PhotoPresenter instancePresenter() {
-        return new PhotoPresenter(this, new PhotoMode());
-    }
-
     public void openCamera(File storagePath) {
         String action = MediaStore.ACTION_IMAGE_CAPTURE;
         Intent intent = new Intent(action);

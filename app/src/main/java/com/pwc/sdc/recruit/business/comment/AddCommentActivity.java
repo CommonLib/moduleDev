@@ -59,11 +59,6 @@ public class AddCommentActivity extends ToolBarActivity<AddCommentPresenter> imp
     }
 
     @Override
-    protected AddCommentPresenter instancePresenter() {
-        return new AddCommentPresenter(this, new AddCommentMode());
-    }
-
-    @Override
     public void showCandidate(Candidate candidate) {
         mInfoFragment = null;
         if (TextUtils.equals(candidate.language, Constants.PROFILE_LANGUAGE_FORMAT_CHNIESE)) {

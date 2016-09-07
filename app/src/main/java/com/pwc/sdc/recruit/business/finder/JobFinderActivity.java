@@ -76,11 +76,6 @@ public class JobFinderActivity extends BaseActivity<JobFinderPresenter> implemen
     }
 
     @Override
-    protected JobFinderPresenter instancePresenter() {
-        return new JobFinderPresenter(this, new JobFinderDataSource(this));
-    }
-
-    @Override
     public void initSuggestionCursor() {
         getPresenter().dataSource.getJobFinderNameCursor(null, new JobFinderModel.LoadJobNameCallback() {
             @Override

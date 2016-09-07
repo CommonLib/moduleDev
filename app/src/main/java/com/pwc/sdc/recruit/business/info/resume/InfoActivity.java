@@ -67,11 +67,6 @@ public class InfoActivity extends ToolBarActivity<InfoPresenter> implements Info
     }
 
     @Override
-    protected InfoPresenter instancePresenter() {
-        return new InfoPresenter(this, new InfoMode());
-    }
-
-    @Override
     public IssueView checkEmpty() {
         return mInfoFragment.checkEmpty();
     }

@@ -20,12 +20,6 @@ public class MainActivity extends SingleFragmentActivity<MainConstract.Presenter
         mPresenter.onclick();
     }
 
-    @Override
-    protected MainConstract.Presenter instancePresenter() {
-        MainPresenter mainPresenter = new MainPresenter(this, new MainMode());
-        return mainPresenter;
-    }
-
 
     @Override
     public void showProgress() {

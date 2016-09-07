@@ -23,10 +23,6 @@ public class PhotoPresenter extends BasePresenter<PhotoActivity, PhotoMode> impl
     private HomeReceiver mHomeReceiver;
     private boolean mOpenSensor;
 
-    public PhotoPresenter(PhotoActivity viewLayer, PhotoMode modelLayer) {
-        super(viewLayer, modelLayer);
-    }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         //恢复初始值的状态

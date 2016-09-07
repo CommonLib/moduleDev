@@ -86,11 +86,6 @@ public class ProfileActivity extends ToolBarActivity<ProfilePresenter> implement
     }
 
     @Override
-    protected ProfilePresenter instancePresenter() {
-        return new ProfilePresenter(this, new ProfileMode());
-    }
-
-    @Override
     public void showProfile(List<Object> list) {
         mProfileFragment.showProfile(list);
     }

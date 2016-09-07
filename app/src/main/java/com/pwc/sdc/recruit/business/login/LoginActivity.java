@@ -37,12 +37,6 @@ public class LoginActivity extends SingleFragmentActivity<LoginPresenter> implem
     }
 
     @Override
-    protected LoginPresenter instancePresenter() {
-        return new LoginPresenter(this, new LoginMode());
-    }
-
-
-    @Override
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(0, R.anim.activity_right_out);

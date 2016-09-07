@@ -10,6 +10,8 @@ import com.pwc.sdc.recruit.R;
 import com.pwc.sdc.recruit.base.BaseFragment;
 import com.pwc.sdc.recruit.base.SingleFragmentActivity;
 
+import de.greenrobot.event.EventBus;
+
 /**
  * @author:dongpo 创建时间: 7/12/2016
  * 描述:
@@ -32,11 +34,6 @@ public class RegulationActivity extends SingleFragmentActivity<RegulationPresent
     @Override
     protected void initData() {
 
-    }
-
-    @Override
-    protected RegulationPresenter instancePresenter() {
-        return new RegulationPresenter(this, new RegulationMode());
     }
 
     @Override

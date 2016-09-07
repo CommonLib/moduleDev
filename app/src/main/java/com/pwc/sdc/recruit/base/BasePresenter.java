@@ -6,9 +6,11 @@ import android.os.Handler;
 
 import com.pwc.sdc.recruit.PwcApplication;
 import com.pwc.sdc.recruit.base.interf.ActivityModel;
+import com.pwc.sdc.recruit.base.interf.ActivityPresenter;
 import com.pwc.sdc.recruit.base.interf.ViewLayer;
 import com.pwc.sdc.recruit.data.remote.BackPointService;
 import com.pwc.sdc.recruit.data.remote.RetrofitHelper;
+import com.thirdparty.proxy.utils.TUtil;
 
 import in.srain.cube.views.ptr.PtrFrameLayout;
 
@@ -22,9 +24,8 @@ public abstract class BasePresenter<V extends ViewLayer, M extends ActivityModel
     public V mViewLayer;
     public M mModelLayer;
 
-    public BasePresenter(V viewLayer, M modelLayer){
-        mViewLayer = viewLayer;
-        mModelLayer = modelLayer;
+    public BasePresenter(){
+        mModelLayer = TUtil.getT(this, 1);
     }
 
     public void onRefresh(PtrFrameLayout frame){}
@@ -58,9 +59,13 @@ public abstract class BasePresenter<V extends ViewLayer, M extends ActivityModel
         return PwcApplication.getHandler();
     }
 
+    public <T extends ActivityPresenter> void setViewLayer(BaseActivity<T> tBaseActivity){
+          mViewLayer = (V) tBaseActivity;
+    }
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {}
     public void onActivitySaveInstanceState(Bundle outState){}
     public void onFragmentSaveInstanceState(Bundle outState){}
     public void handleIntent(Intent intent){}
-    public void onRestoreInstanceState(Bundle savedInstanceState){};
+    public void onRestoreInstanceState(Bundle savedInstanceState){}
 }

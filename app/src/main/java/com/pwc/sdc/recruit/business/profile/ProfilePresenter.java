@@ -62,10 +62,6 @@ public class ProfilePresenter extends BasePresenter<ProfileActivity, ProfileMode
     private int mRecruiterLastBottomPosition = 0;
     private Subscription mUploadRecruiterRequest;
 
-    public ProfilePresenter(ProfileActivity viewLayer, ProfileMode modelLayer) {
-        super(viewLayer, modelLayer);
-    }
-
     /**
      * 下拉刷新时调用
      *

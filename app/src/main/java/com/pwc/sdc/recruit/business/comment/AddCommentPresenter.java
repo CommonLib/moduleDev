@@ -28,10 +28,6 @@ public class AddCommentPresenter extends BasePresenter<AddCommentActivity, AddCo
     private Profile mProfile;
     private boolean isSubmiting = false;
 
-    public AddCommentPresenter(AddCommentActivity viewLayer, AddCommentMode modelLayer) {
-        super(viewLayer, modelLayer);
-    }
-
     @Override
     public void requestCandidate() {
         //请求网络, 拿到数据

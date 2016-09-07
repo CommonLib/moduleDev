@@ -39,11 +39,6 @@ public class PhotoConfirmActivity extends SingleFragmentActivity<PhotoConfirmPre
     }
 
     @Override
-    protected PhotoConfirmPresenter instancePresenter() {
-        return new PhotoConfirmPresenter(this, new PhotoConfirmMode());
-    }
-
-    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         mPresenter.onActivityResult(requestCode, resultCode, data);
     }

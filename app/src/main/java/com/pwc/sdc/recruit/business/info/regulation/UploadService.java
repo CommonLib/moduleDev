@@ -4,18 +4,19 @@ import android.app.IntentService;
 import android.content.Intent;
 
 import com.facebook.common.internal.Preconditions;
-import com.pwc.sdc.recruit.PwcApplication;
 import com.pwc.sdc.recruit.constants.Constants;
+import com.pwc.sdc.recruit.data.model.UploadInfo;
 import com.pwc.sdc.recruit.data.remote.RetrofitHelper;
+import com.pwc.sdc.recruit.data.remote.RxHelper;
 import com.pwc.sdc.recruit.manager.CandidateManager;
 import com.thirdparty.proxy.net.http.retrofit.HttpResponse;
-import com.pwc.sdc.recruit.data.remote.RxHelper;
 import com.thirdparty.proxy.net.http.retrofit.rx.UpLoadSubscriber;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+import de.greenrobot.event.EventBus;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import rx.Observable;
@@ -26,6 +27,9 @@ import rx.Observable;
  * 修改:
  */
 public class UploadService extends IntentService {
+
+    private UploadInfo mInfo;
+
     /**
      * Creates an IntentService.  Invoked by your subclass's constructor.
      *
@@ -56,27 +60,55 @@ public class UploadService extends IntentService {
         UpLoadSubscriber<Void> callBack = new UpLoadSubscriber<Void>() {
             @Override
             public void onSuccess(Void o) {
-                PwcApplication.getInstance().sendBroadCast(Constants.ACTION_UPLOAD_SUCCESS, Constants.CATEGORY_DEFAULT);
+                UploadInfo uploadInfo = getUploadInfo();
+                uploadInfo.action = Constants.ACTION_UPLOAD_SUCCESS;
+                EventBus.getDefault().post(uploadInfo);
+                //PwcApplication.getInstance().sendBroadCast(Constants.ACTION_UPLOAD_SUCCESS, Constants.CATEGORY_DEFAULT);
             }
 
             @Override
             public void onFailure(int errorCode, String message) {
-                Intent intent = PwcApplication.getInstance().newIntent(Constants.ACTION_UPLOAD_FAILURE, Constants.CATEGORY_DEFAULT);
+                UploadInfo uploadInfo = getUploadInfo();
+                uploadInfo.action = Constants.ACTION_UPLOAD_FAILURE;
+                uploadInfo.errorCode = errorCode;
+                uploadInfo.errorMessage = message;
+                EventBus.getDefault().post(uploadInfo);
+                /*Intent intent = PwcApplication.getInstance().newIntent(Constants.ACTION_UPLOAD_FAILURE, Constants.CATEGORY_DEFAULT);
                 intent.putExtra(Constants.UPLOAD_ERROR_CODE, errorCode);
                 intent.putExtra(Constants.UPLOAD_ERROR_MESSAGE, message);
-                sendBroadcast(intent);
+                sendBroadcast(intent);*/
             }
 
             @Override
             public void onUpLoadProgress(String tag, long totalSize, long currentSize, long speed, boolean done) {
-                Intent intent = PwcApplication.getInstance().newIntent(Constants.ACTION_UPLOAD_UPDATE_PROGRESS, Constants.CATEGORY_DEFAULT);
+                UploadInfo uploadInfo = getUploadInfo();
+                uploadInfo.action = Constants.ACTION_UPLOAD_UPDATE_PROGRESS;
+                uploadInfo.tag = tag;
+                uploadInfo.totalSize = totalSize;
+                uploadInfo.currentSize = currentSize;
+                uploadInfo.speed = speed;
+                EventBus.getDefault().post(uploadInfo);
+                /*Intent intent = PwcApplication.getInstance().newIntent(Constants.ACTION_UPLOAD_UPDATE_PROGRESS, Constants.CATEGORY_DEFAULT);
                 intent.putExtra(Constants.UPLOAD_TOTAL_SIZE, totalSize);
                 intent.putExtra(Constants.UPLOAD_CURRENT_SIZE, currentSize);
                 intent.putExtra(Constants.UPLOAD_TAG, tag);
                 intent.putExtra(Constants.NETWORK_SPEED, speed);
-                sendBroadcast(intent);
+                sendBroadcast(intent);*/
             }
         };
         RxHelper.upload(uploadApi, callBack);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    public UploadInfo getUploadInfo() {
+        if (mInfo == null) {
+            mInfo = new UploadInfo();
+        }
+        mInfo.clear();
+        return mInfo;
     }
 }

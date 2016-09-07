@@ -10,7 +10,6 @@ public class JobFinderPresenter extends BasePresenter<JobFinderActivity,JobFinde
     public JobFinderActivity view;
 
     public JobFinderPresenter(JobFinderActivity view, JobFinderDataSource dataSource) {
-        super(view,dataSource);
         this.dataSource = dataSource;
         this.view = view;
     }

@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 import okhttp3.RequestBody;
+import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
@@ -31,6 +32,9 @@ import rx.Observable;
 public interface BackPointService {
     @POST("login")
     Observable<HttpResponse<User>> login(@Body() User user);
+
+    @POST("login")
+    Call<HttpResponse<User>> loginText(@Body() User user);
 
     @POST("uploadResume")
     Observable<HttpResponse<CandidateId>> uploadResume(@Body() Candidate candidate);
