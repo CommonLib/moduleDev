@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="list_divider_color">#DADADA</color>
+    <color name="background_holo_light">#fff3f3f3</color>
+    <!-- 灰度 -->
+    <color name="white"     >#FFFFFF</color>
+    <color name="gray_light">#DBDBDB</color>
+    <color name="gray"      >#939393</color>
+    <color name="gray_dark" >#5F5F5F</color>
+    <color name="black_light">#3F3F3F</color>
+    <color name="black"     >#323232</color>
+
+    <color name="black_41">#414141</color>
+    <color name="red_E0">#E0592A</color>
+    <color name="red_BD">#BD5642</color>
+    <color name="red_BD80">#CCBD5642</color>
+    <color name="red_E3">#E37752</color>
+    <color name="red_E380">#CCE37752</color>
+    <color name="black_3f">#3F4040</color>
+    <color name="black_3f70">#B33F4040</color>
+    <color name="black_3f80">#CC3F4040</color>
+    <color name="grey_97">#979797</color>
+    <color name="white_f2">#F2F2F2</color>
+    <color name="black_47">#472B2B</color>
+    <color name="black_2C90">#B32C2C2C</color>
+
+</resources>

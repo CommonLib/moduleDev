@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+           tools:ignore="MissingTranslation">
+    <string-array name="levels">
+        <item>Managing Director</item>
+        <item>Senior Director</item>
+        <item>Director</item>
+        <item>Associate Director</item>
+        <item>Sr Manager</item>
+        <item>Manager</item>
+        <item>Sr Software Architect</item>
+        <item>Software Architect</item>
+
+        <item>Sr Tech Lead</item>
+        <item>Sr Team Lead</item>
+        <item>Sr Testing Lead</item>
+        <item>Sr Security Lead</item>
+        <item>Project Lead</item>
+
+        <item>Tech Lead</item>
+        <item>Team Lead</item>
+        <item>Testing Lead</item>
+        <item>Security Lead</item>
+
+        <item>Sr Software Engineer</item>
+        <item>Software Engineer</item>
+        <item>Assoc Software Engineer</item>
+    </string-array>
+
+    <integer-array name="google_colors">
+        <item>@color/red</item>
+        <item>@color/blue</item>
+        <item>@color/yellow</item>
+        <item>@color/green</item>
+    </integer-array>
+
+
+</resources>

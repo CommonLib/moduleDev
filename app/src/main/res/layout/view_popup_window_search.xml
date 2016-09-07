@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="@dimen/search_popup_window_width"
+              android:layout_height="match_parent"
+              android:background="@drawable/abc_popup_background_mtrl_mult"
+              android:gravity="center_horizontal"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/search_ll_chinese_name"
+        style="@style/search_popup_window_line">
+        <TextView
+            style="@style/search_popup_tv_description"
+            android:text="@string/search_cn_name"/>
+
+        <TextView
+            android:id="@+id/search_tv_chinese_name"
+            style="@style/search_popup_tv_description"
+            android:layout_width="wrap_content"
+            android:text="张东方"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/search_ll_chinese_pinyin"
+        style="@style/search_popup_window_line">
+
+        <TextView
+            style="@style/search_popup_tv_description"
+            android:text="@string/search_cn_name_pinyin"/>
+
+        <TextView
+            android:id="@+id/search_tv_chinese_pinyin"
+            style="@style/search_popup_tv_description"
+            android:layout_width="wrap_content"
+            android:text="zhangdongfang"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/search_ll_english_name"
+        style="@style/search_popup_window_line">
+
+        <TextView
+            style="@style/search_popup_tv_description"
+            android:text="@string/search_en_name"/>
+
+        <TextView
+            android:id="@+id/search_tv_english_name"
+            style="@style/search_popup_tv_description"
+            android:layout_width="wrap_content"
+            android:text="张东方"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/search_ll_phone"
+        style="@style/search_popup_window_line">
+
+        <TextView
+            style="@style/search_popup_tv_description"
+            android:text="@string/search_phone"/>
+
+        <TextView
+            android:id="@+id/search_tv_phone"
+            style="@style/search_popup_tv_description"
+            android:layout_width="wrap_content"
+            android:text="18516585922"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/search_ll_email"
+        style="@style/search_popup_window_line">
+
+        <TextView
+            style="@style/search_popup_tv_description"
+            android:text="@string/search_email"/>
+
+        <TextView
+            android:id="@+id/search_tv_email"
+            style="@style/search_popup_tv_description"
+            android:layout_width="wrap_content"
+            android:text="domain@example.com"
+            />
+    </LinearLayout>
+
+</LinearLayout>

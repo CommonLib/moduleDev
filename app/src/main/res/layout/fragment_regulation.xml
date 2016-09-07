@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/spacing_large"
+            android:paddingLeft="@dimen/spacing_normal"
+            android:paddingRight="@dimen/spacing_normal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <!--头部-->
+        <LinearLayout
+            android:layout_marginTop="@dimen/space_40"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/regulation_title_cn"
+                    style="@style/info_company_title"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:text="@string/regulation_title_en"
+                    style="@style/info_company_subtitle"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="@dimen/space_15"
+            style="@style/regulation_common_text_view.body"
+            android:paddingLeft="@dimen/spacing_huge"
+            android:text="@string/regulation_body_header"
+            />
+
+        <TextView
+            style="@style/regulation_common_text_view.title"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@string/regulation_title1_health"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/regulation_common_text_view.subtitle"
+                android:layout_width="wrap_content"
+                android:text="1.1"/>
+
+            <TextView
+                style="@style/regulation_common_text_view.body"
+                android:text="@string/regulation_health_body1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/regulation_common_text_view.subtitle"
+                android:layout_width="wrap_content"
+                android:text="1.2"/>
+
+            <TextView
+                style="@style/regulation_common_text_view.body"
+                android:text="@string/regulation_health_body2"/>
+        </LinearLayout>
+
+        <TextView
+            style="@style/regulation_common_text_view.title"
+            android:layout_marginTop="@dimen/space_18"
+            android:text="@string/regulation_title2_morality"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/regulation_common_text_view.subtitle"
+                android:layout_width="wrap_content"
+                android:text="2.1"/>
+
+            <TextView
+                style="@style/regulation_common_text_view.body"
+                android:text="@string/regulation_morality_body1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/regulation_common_text_view.subtitle"
+                android:layout_width="wrap_content"
+                android:text="2.2"/>
+
+            <TextView
+                style="@style/regulation_common_text_view.body"
+                android:text="@string/regulation_morality_body2"/>
+        </LinearLayout>
+
+        <TextView
+            style="@style/regulation_common_text_view.title"
+            android:layout_marginTop="@dimen/space_18"
+            android:text="@string/regulation_title3_education_work"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/regulation_common_text_view.subtitle"
+                android:layout_width="wrap_content"
+                android:text="3.1"/>
+
+            <TextView
+                style="@style/regulation_common_text_view.body"
+                android:text="@string/regulation_education_work_body1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/regulation_common_text_view.subtitle"
+                android:layout_width="wrap_content"
+                android:text="3.2"/>
+
+            <TextView
+                style="@style/regulation_common_text_view.body"
+                android:text="@string/regulation_education_work_body2"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/regulation_common_text_view.subtitle"
+                android:layout_width="wrap_content"
+                android:text="3.3"/>
+
+            <TextView
+                style="@style/regulation_common_text_view.body"
+                android:text="@string/regulation_education_work_body3"/>
+        </LinearLayout>
+
+        <TextView
+            style="@style/regulation_common_text_view.title"
+            android:layout_marginTop="@dimen/space_18"
+            android:text="@string/regulation_title4_Explanation"/>
+
+        <TextView
+            style="@style/regulation_common_text_view.subtitle"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:text="@string/regulation_Explanation_body1"/>
+
+        <!--声明-->
+
+        <TextView
+            android:layout_marginTop="@dimen/space_30"
+            android:gravity="center_horizontal"
+            style="@style/regulation_common_text_view.subtitle"
+            android:textSize="@dimen/font_15"
+            android:textColor="@color/black_3f80"
+            android:text="@string/regulation_declaration"
+            android:textStyle="bold"
+            />
+        <LinearLayout
+            android:paddingLeft="@dimen/spacing_large"
+            android:paddingRight="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/space_15"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content">
+            <CheckBox
+                style="@style/base_check_box_appearance"
+                android:id="@+id/regulation_cb_declaration1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                style="@style/regulation_common_text_view.title"
+                android:text="@string/regulation_declaration_body1"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingLeft="@dimen/spacing_large"
+            android:paddingRight="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content">
+            <CheckBox
+                style="@style/base_check_box_appearance"
+                android:id="@+id/regulation_cb_declaration2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                style="@style/regulation_common_text_view.title"
+                android:text="@string/regulation_declaration_body2"
+                />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/regulation_btn_submit"
+            style="@style/login_button"
+            android:background="@drawable/selector_button_create_profile"
+            android:layout_width="@dimen/width_150"
+            android:layout_marginTop="@dimen/space_15"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/height_40"
+            android:text="@string/regulation_submit"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/info_rights"/>
+
+    </LinearLayout>
+</ScrollView>

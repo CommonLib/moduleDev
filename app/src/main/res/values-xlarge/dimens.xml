@@ -1,0 +1,158 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="dialog_margin">7dp</dimen>
+    <dimen name="global_padding">8dp</dimen>
+    <dimen name="global_dialog_padding">15dp</dimen>
+    <dimen name="text_regular_primary_size">14dp</dimen>
+    <dimen name="text_large_secondary_size">12dp</dimen>
+    <dimen name="text_large_primary_size">16dp</dimen>
+
+    <!-- 字体大小 -->
+    <dimen name="font_largest">22sp</dimen>
+    <dimen name="font_larger_more">20sp</dimen>
+    <dimen name="font_larger">18sp</dimen>
+    <dimen name="font_large">16sp</dimen>
+    <dimen name="font_normal">16sp</dimen>
+    <dimen name="font_small">12sp</dimen>
+
+    <!-- 常用间距 -->
+    <dimen name="spacing_hugest">80dp</dimen>
+    <dimen name="spacing_huge">40dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+    <dimen name="spacing_normal">14dp</dimen>
+    <dimen name="spacing_small">10dp</dimen>
+    <dimen name="spacing_tiny">4dp</dimen>
+
+    <!-- 常用View高度大小 -->
+    <dimen name="height_tall">60dp</dimen>
+    <dimen name="height_normal_large">50dp</dimen>
+    <dimen name="height_normal">40dp</dimen>
+    <dimen name="height_short">32dp</dimen>
+    <dimen name="height_tiny">32dp</dimen>
+    <dimen name="height_tiny_less">20dp</dimen>
+
+    <!--对话框按钮大小-->
+    <dimen name="dialog_width">120dp</dimen>
+    <dimen name="dialog_height">40dp</dimen>
+
+
+    <!--登录界面-->
+    <dimen name="login_total_width">300dp</dimen>
+    <dimen name="login_input_width">420dp</dimen>
+    <dimen name="login_input_height">75dp</dimen>
+
+    <!--拍照界面-->
+    <dimen name="photo_container_width">381dp</dimen>
+    <dimen name="photo_container_height">480dp</dimen>
+    <dimen name="photo_camera_icon_height">107dp</dimen>
+    <dimen name="photo_camera_icon_width">92dp</dimen>
+
+    <!--拍照确认界面-->
+    <dimen name="photo_confirm_header_width">381dp</dimen>
+    <dimen name="photo_confirm_header_height">480dp</dimen>
+
+    <!--信息页面-->
+    <dimen name="info_header_width">92dp</dimen>
+    <dimen name="info_header_height">116dp</dimen>
+    <dimen name="info_root_padding">30dp</dimen>
+    <dimen name="info_description_width_cn">90dp</dimen>
+    <dimen name="info_description_width_en">100dp</dimen>
+    <dimen name="info_button_width">150dp</dimen>
+    <dimen name="search_et_width">150dp</dimen>
+    <dimen name="search_btn_width">150dp</dimen>
+    <dimen name="load_more_pb_width">40dp</dimen>
+    <dimen name="assign_candidate_recruiter_height">380dp</dimen>
+    <dimen name="search_description_width">75dp</dimen>
+    <dimen name="assign_btn_width">150dp</dimen>
+    <dimen name="assign_chosen_width">100dp</dimen>
+    <dimen name="assign_dialog_width">700dp</dimen>
+    <dimen name="assign_dialog_content_width">700dp</dimen>
+    <dimen name="assign_chosen_search_width">200dp</dimen>
+    <dimen name="comment_et_height">200dp</dimen>
+    <dimen name="comment_spinner_width">220dp</dimen>
+    <dimen name="comment_spinner_height">30dp</dimen>
+    <dimen name="profile_tv_date_height">50dp</dimen>
+
+    <dimen name="comment_spinner_text_view_height">40dp</dimen>
+    <dimen name="login_logo_width">150dp</dimen>
+
+    <dimen name="search_popup_description_width">90dp</dimen>
+    <dimen name="search_popup_window_width">300dp</dimen>
+
+    <dimen name="space_30">30dp</dimen>
+    <dimen name="space_10">10dp</dimen>
+    <dimen name="space_24">24dp</dimen>
+    <dimen name="space_28">28dp</dimen>
+    <dimen name="space_20">20dp</dimen>
+    <dimen name="space_15">15dp</dimen>
+    <dimen name="space_25">25dp</dimen>
+    <dimen name="space_95">95dp</dimen>
+    <dimen name="space_50">50dp</dimen>
+    <dimen name="space_45">45dp</dimen>
+    <dimen name="space_60">60dp</dimen>
+    <dimen name="space_40">40dp</dimen>
+    <dimen name="space_75">75dp</dimen>
+    <dimen name="space_35">35dp</dimen>
+    <dimen name="space_5">5dp</dimen>
+    <dimen name="space_18">18dp</dimen>
+    <dimen name="space_3">3dp</dimen>
+    <dimen name="space_166">166dp</dimen>
+    <dimen name="space_192">192dp</dimen>
+    <dimen name="space_4">4dp</dimen>
+    <dimen name="space_13">13dp</dimen>
+    <dimen name="space_2">2dp</dimen>
+    <dimen name="space_27">27dp</dimen>
+    <dimen name="space_47">47dp</dimen>
+    <dimen name="space_14">14dp</dimen>
+    <dimen name="space_8">8dp</dimen>
+
+
+    <dimen name="width_50">50dp</dimen>
+    <dimen name="width_247">247dp</dimen>
+    <dimen name="width_103">103dp</dimen>
+    <dimen name="width_218">218dp</dimen>
+    <dimen name="width_60">60dp</dimen>
+    <dimen name="width_300">300dp</dimen>
+    <dimen name="width_30">30dp</dimen>
+    <dimen name="width_20">20dp</dimen>
+    <dimen name="width_150">150dp</dimen>
+    <dimen name="width_27">27dp</dimen>
+    <dimen name="width_38">38dp</dimen>
+    <dimen name="width_200">200dp</dimen>
+    <dimen name="width_535">535dp</dimen>
+    <dimen name="width_304">304dp</dimen>
+    <dimen name="width_228">228dp</dimen>
+    <dimen name="width_330">330dp</dimen>
+    <dimen name="width_156">156dp</dimen>
+    <dimen name="width_35">35dp</dimen>
+
+    <dimen name="height_364">364dp</dimen>
+    <dimen name="height_342">342dp</dimen>
+    <dimen name="height_35">35dp</dimen>
+    <dimen name="height_52">52dp</dimen>
+    <dimen name="height_147">147dp</dimen>
+    <dimen name="height_30">30dp</dimen>
+    <dimen name="height_40">40dp</dimen>
+    <dimen name="height_50">50dp</dimen>
+    <dimen name="height_38">38dp</dimen>
+    <dimen name="height_60">60dp</dimen>
+    <dimen name="height_312">312dp</dimen>
+    <dimen name="height_80">80dp</dimen>
+    <dimen name="height_20">20dp</dimen>
+    <dimen name="height_55">55dp</dimen>
+
+    <dimen name="font_22">22sp</dimen>
+    <dimen name="font_25">25sp</dimen>
+    <dimen name="font_20">20sp</dimen>
+    <dimen name="font_24">24sp</dimen>
+    <dimen name="font_18">18sp</dimen>
+    <dimen name="font_15">15sp</dimen>
+    <dimen name="font_30">30sp</dimen>
+    <dimen name="font_26">26sp</dimen>
+    <dimen name="font_14">14sp</dimen>
+    <dimen name="font_13">13sp</dimen>
+    <dimen name="font_12">12sp</dimen>
+</resources>

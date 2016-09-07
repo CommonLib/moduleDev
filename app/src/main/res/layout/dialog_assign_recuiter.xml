@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/black_2C90"
+              android:orientation="vertical">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"/>
+
+    <FrameLayout
+        android:layout_marginTop="@dimen/space_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="@dimen/assign_dialog_content_width"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_tall"
+                android:background="@mipmap/assign_search_bar"
+                android:orientation="horizontal">
+
+                <com.pwc.sdc.recruit.widget.FooterAutoRecycleView
+                    android:id="@+id/assign_rv_chosen_recruiter"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="2dp"
+                    android:paddingLeft="@dimen/spacing_normal"
+                    android:paddingRight="@dimen/spacing_normal">
+                </com.pwc.sdc.recruit.widget.FooterAutoRecycleView>
+
+                <ImageView
+                    android:id="@+id/assign_iv_search_icon"
+                    android:paddingLeft="@dimen/space_10"
+                    android:paddingRight="@dimen/space_24"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/assign_search"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/space_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/candidate_tv_name"
+                    android:gravity="center"
+                    style="@style/profile_search_recruiter"
+                    android:text="@string/recruiter_name">
+                </TextView>
+
+                <TextView
+                    android:gravity="center"
+                    android:id="@+id/candidate_tv_guid"
+                    style="@style/profile_search_recruiter"
+                    android:text="@string/recruiter_guid">
+                </TextView>
+
+                <TextView
+                    android:gravity="center"
+                    android:id="@+id/candidate_tv_department"
+                    style="@style/profile_search_recruiter"
+                    android:text="@string/recruiter_department">
+                </TextView>
+
+            </LinearLayout>
+
+            <View
+                android:layout_marginTop="@dimen/space_10"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_light"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/assign_rv_candidate_recruiter"
+                android:layout_width="@dimen/assign_dialog_content_width"
+                android:layout_height="@dimen/assign_candidate_recruiter_height"
+                android:layout_gravity="center_horizontal">
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:layout_width="@dimen/assign_dialog_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/dialog_btn_cancel"
+            style="@style/search_item_button"
+            android:layout_width="@dimen/assign_btn_width"
+            android:text="@string/cancel"/>
+
+        <Button
+            android:id="@+id/dialog_btn_confirm"
+            style="@style/search_item_button"
+            android:layout_width="@dimen/assign_btn_width"
+            android:layout_marginLeft="@dimen/spacing_huge"
+            android:text="@string/confirm"/>
+    </LinearLayout>
+
+</LinearLayout>

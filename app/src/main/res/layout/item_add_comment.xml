@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:id="@+id/comment_ll_section"
+              android:layout_marginTop="@dimen/spacing_large"
+              android:orientation="vertical">
+    <include layout="@layout/view_divide_line_add_experience"/>
+
+    <TextView
+        style="@style/comment_tv_title"
+        android:text="@string/comment"/>
+
+    <EditText
+        android:padding="@dimen/space_10"
+        android:maxLines="7"
+        android:gravity="left|top"
+        android:maxLength="@integer/comment_max_length"
+        android:id="@+id/comment_et_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/comment_et_height"
+        android:scrollbars="vertical"
+        android:layout_marginTop="@dimen/space_10"
+        android:hint="@string/comment_max_length"
+        android:background="@drawable/shape_bg_info_edit_text_grey"/>
+
+    <RadioGroup
+        android:id="@+id/comment_rg_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_20"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <RadioButton
+            android:id="@+id/comment_rg_result_offer"
+            style="@style/comment_radio_button"
+            android:text="@string/comment_offer"/>
+
+        <RadioButton
+            android:id="@+id/comment_rg_result_next"
+            style="@style/comment_radio_button"
+            android:text="@string/comment_next_ground"/>
+
+        <RadioButton
+            android:id="@+id/comment_rg_result_keeping"
+            style="@style/comment_radio_button"
+            android:text="@string/comment_keep_file"/>
+
+        <RadioButton
+            android:id="@+id/comment_rg_result_reject"
+            style="@style/comment_radio_button"
+            android:text="@string/comment_reject"/>
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_20"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/comment_tv_description"
+            android:text="@string/comment_interviewer"/>
+
+        <FrameLayout
+            android:layout_width="@dimen/comment_spinner_width"
+            android:layout_height="@dimen/comment_spinner_height"
+            android:layout_marginLeft="@dimen/space_15">
+
+            <Spinner
+                android:id="@+id/comment_spinner_interviewers"
+                android:layout_width="@dimen/comment_spinner_width"
+                android:layout_height="@dimen/comment_spinner_height"
+                android:background="@drawable/shape_bg_info_edit_text_grey"/>
+
+            <ImageView
+                android:id="@+id/comment_iv_interviewers_arrow"
+                android:layout_width="@dimen/width_27"
+                android:layout_height="match_parent"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="@dimen/spacing_tiny"
+                android:paddingLeft="@dimen/space_5"
+                android:paddingRight="@dimen/space_5"
+                android:src="@mipmap/choose"/>
+        </FrameLayout>
+
+
+        <TextView
+            style="@style/comment_tv_description"
+            android:layout_marginLeft="@dimen/space_192"
+            android:text="@string/comment_level"/>
+
+        <FrameLayout
+            android:layout_width="@dimen/comment_spinner_width"
+            android:layout_height="@dimen/comment_spinner_height"
+            android:layout_marginLeft="@dimen/space_15">
+
+            <Spinner
+                android:id="@+id/comment_spinner_levels"
+                android:layout_width="@dimen/comment_spinner_width"
+                android:layout_height="@dimen/comment_spinner_height"
+                android:background="@drawable/shape_bg_info_edit_text_grey"/>
+
+            <ImageView
+                android:id="@+id/comment_spinner_arrow"
+                android:layout_width="@dimen/width_27"
+                android:layout_height="match_parent"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="@dimen/spacing_tiny"
+                android:paddingLeft="@dimen/space_5"
+                android:paddingRight="@dimen/space_5"
+                android:src="@mipmap/choose"/>
+        </FrameLayout>
+    </LinearLayout>
+    
+    <Button
+        android:id="@+id/comment_btn_submit"
+        android:layout_width="@dimen/width_247"
+        android:layout_height="@dimen/height_52"
+        android:background="@drawable/selector_button_login"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:layout_marginTop="@dimen/space_60"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/font_20"
+        android:text="@string/regulation_submit"/>
+
+</LinearLayout>

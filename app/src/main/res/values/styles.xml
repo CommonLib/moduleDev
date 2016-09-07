@@ -1,0 +1,336 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/gray_dark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/activity_animation</item>
+        <item name="android:datePickerDialogTheme">@style/date_picker_dialog</item>
+        <item name="android:textSize">@dimen/font_18</item>
+    </style>
+
+    <!--activity过度动画-->
+    <style name="activity_animation">
+        <item name="android:activityOpenExitAnimation">@anim/activity_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_right_out</item>
+        <item name="android:activityOpenEnterAnimation">@anim/activity_right_in</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="ToolBarTheme" parent="AppTheme">
+        <item name="actionMenuTextColor">@color/black</item> <!--  敲定颜色-->
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:textSize">@dimen/font_18</item> <!--  搞掂字体大小-->
+    </style>
+
+    <!--字体样式-->
+    <style name="base_text_appearance">
+        <item name="android:textSize">@dimen/font_normal</item>
+        <item name="android:textColor">@color/black_3f</item>
+    </style>
+
+    <!--button样式-->
+    <style name="base_button_appearance" parent="base_text_appearance">
+        <item name="android:textColor">@color/black_light</item>
+    </style>
+
+    <!--EditText样式-->
+    <style name="base_edit_text_appearance" parent="base_text_appearance">
+    </style>
+
+    <!--CheckBox样式-->
+    <style name="base_check_box_appearance" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@null</item>
+        <item name="android:background">@drawable/selector_login_checkbox</item>
+    </style>
+
+    <!--RadioButton样式-->
+    <style name="base_radio_button_appearance" parent="base_text_appearance">
+    </style>
+
+    <style name="dialog_common" parent="@style/Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@drawable/dialog_background</item>
+    </style>
+
+    <style name="section_item_divider">
+        <item name="android:background">@color/list_divider_color</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1.0px</item>
+    </style>
+
+    <!--登录界面-->
+    <style name="login_edit_text" parent="base_edit_text_appearance">
+        <item name="android:paddingLeft">@dimen/spacing_small</item>
+        <item name="android:layout_width">@dimen/login_input_width</item>
+        <item name="android:layout_height">@dimen/login_input_height</item>
+        <item name="android:textSize">@dimen/font_normal</item>
+        <item name="android:background">@drawable/shape_bg_edit_text</item>
+    </style>
+
+    <style name="login_button" parent="base_button_appearance">
+        <item name="android:layout_width">@dimen/login_input_width</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/selector_button_login</item>
+    </style>
+
+    <style name="login_text_view" parent="base_text_appearance">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/space_10</item>
+        <item name="android:paddingBottom">@dimen/space_10</item>
+        <item name="android:textSize">@dimen/font_large</item>
+        <item name="android:textColor">@drawable/selector_login_change_language</item>
+    </style>
+
+    <style name="login_tv_create_profile" parent="base_text_appearance">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/font_26</item>
+    </style>
+
+    <style name="login_tv_create_profile_for_candidate" parent="login_tv_create_profile">
+        <item name="android:textSize">@dimen/font_24</item>
+    </style>
+
+    <style name="photo_confirm_text" parent="base_text_appearance">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/red_E3</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_25</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingTop">@dimen/space_10</item>
+        <item name="android:paddingBottom">@dimen/space_10</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="info_company_title" parent="base_text_appearance">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/font_25</item>
+        <item name="android:textColor">@color/black_3f</item>
+    </style>
+
+    <style name="info_company_subtitle" parent="base_text_appearance">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/font_18</item>
+        <item name="android:textColor">@color/black_3f70</item>
+    </style>
+
+    <style name="info_section_title" parent="base_text_appearance">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@color/red_E3</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/space_18</item>
+        <item name="android:padding">@dimen/space_5</item>
+        <item name="android:layout_marginTop">@dimen/spacing_tiny</item>
+    </style>
+
+    <style name="info_line_property">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="info_line_vertical_property">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!--信息采集页面，中文的TextView-->
+    <style name="info_common_description" parent="info_common_description_en">
+    </style>
+
+    <!--信息采集页面，英文的TextView-->
+    <style name="info_common_description_en" parent="base_text_appearance">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black_3f80</item>
+        <item name="android:layout_marginTop">@dimen/space_20</item>
+        <item name="android:textSize">@dimen/font_20</item>
+    </style>
+
+    <style name="info_common_radio_group">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/space_20</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="info_common_radio_button" parent="base_radio_button_appearance">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/space_15</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:paddingLeft">@dimen/space_10</item>
+        <item name="android:textSize">@dimen/font_20</item>
+        <item name="android:textColor">@color/black_3f80</item>
+    </style>
+
+    <style name="info_common_edit_text" parent="base_edit_text_appearance">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/height_50</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@drawable/selector_info_edit_text</item>
+        <item name="android:textColor">@color/black_3f70</item>
+        <item name="android:textSize">@dimen/font_18</item>
+        <item name="android:paddingLeft">@dimen/space_24</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:layout_marginTop">@dimen/space_10</item>
+    </style>
+
+    <style name="info_common_edit_text_date" parent="info_common_edit_text">
+        <item name="android:inputType">date</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="info_common_btn" parent="base_button_appearance">
+        <item name="android:layout_marginTop">@dimen/spacing_large</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_width">@dimen/info_button_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+
+    <!--公司规章制度页面-->
+    <style name="regulation_common_text_view" parent="base_text_appearance">
+        <item name="android:textColor">@color/black_3f80</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_14</item>
+    </style>
+
+    <style name="regulation_common_text_view.title" parent="regulation_common_text_view">
+        <item name="android:paddingLeft">@dimen/spacing_normal</item>
+        <item name="android:paddingRight">@dimen/spacing_normal</item>
+    </style>
+
+    <style name="regulation_common_text_view.subtitle" parent="regulation_common_text_view">
+        <item name="android:paddingLeft">@dimen/spacing_large</item>
+    </style>
+
+    <style name="regulation_common_text_view.body" parent="regulation_common_text_view">
+        <item name="android:paddingLeft">@dimen/spacing_normal</item>
+    </style>
+
+    <!--简历检索页面-->
+    <style name="search_text_view_title" parent="base_text_appearance">
+        <item name="android:gravity">left</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_14</item>
+        <item name="android:textColor">@color/red_E3</item>
+    </style>
+
+    <style name="search_text_view_content" parent="search_text_view_title">
+        <item name="android:gravity">left</item>
+        <item name="android:width">0dp</item>
+        <item name="android:textSize">@dimen/font_12</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginTop">@dimen/space_3</item>
+        <item name="android:textColor">@color/black_47</item>
+    </style>
+
+    <style name="search_ll_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/space_8</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="search_item_button" parent="base_button_appearance">
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_width">@dimen/search_btn_width</item>
+        <item name="android:layout_height">@dimen/height_52</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!--添加评论界面-->
+    <style name="comment_radio_button" parent="info_common_radio_button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="comment_tv_title" parent="info_common_description">
+
+    </style>
+
+    <style name="comment_tv_description" parent="info_common_description">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginTop">0dp</item>
+    </style>
+
+    <!--搜索弹出popupwindow-->
+    <style name="search_popup_tv_description">
+        <item name="android:layout_width">@dimen/search_popup_description_width</item>
+        <item name="android:text">@string/search_cn_name</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/font_large</item>
+        <item name="android:textColor">@color/gray_dark</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="search_popup_window_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@drawable/selector_item_click</item>
+        <item name="android:paddingLeft">@dimen/spacing_normal</item>
+        <item name="android:paddingRight">@dimen/spacing_normal</item>
+        <item name="android:paddingTop">@dimen/spacing_normal</item>
+        <item name="android:paddingBottom">@dimen/spacing_normal</item>
+    </style>
+
+    <style name="profile_search_recruiter">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">@dimen/height_normal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/font_18</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="login_recruiter_login" parent="base_text_appearance">
+        <item name="android:textColor">@color/red_BD</item>
+        <item name="android:textSize">@dimen/font_24</item>
+    </style>
+
+    <!--assign 面试官dialog样式-->
+    <style name="popupDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/black_2C90</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+    </style>
+
+    <!--5.0以上可用-->
+    <style name="date_picker_dialog" parent="@android:style/Theme.Material.Light.Dialog">
+        <item name="android:colorAccent">@color/red_E3</item>
+    </style>
+</resources>

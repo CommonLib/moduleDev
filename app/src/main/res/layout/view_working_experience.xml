@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <!--公司名称、起止时间-->
+    <LinearLayout
+        style="@style/info_line_property">
+
+        <LinearLayout
+            style="@style/info_line_vertical_property"
+            android:paddingRight="@dimen/space_27">
+            <TextView
+                android:id="@+id/info_tv_company_name"
+                style="@style/info_common_description"
+                android:text="@string/info_company_name"/>
+            <EditText
+                android:id="@+id/info_et_company_name"
+                style="@style/info_common_edit_text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/info_line_vertical_property"
+            android:paddingLeft="@dimen/space_27">
+
+            <TextView
+                android:id="@+id/info_tv_dates_from_to"
+                style="@style/info_common_description"
+                android:text="@string/info_dates_from_to"/>
+            <LinearLayout
+                android:layout_marginTop="@dimen/space_10"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_marginTop="0dp"
+                    android:gravity="center"
+                    android:text="@string/from"
+                    android:layout_marginRight="@dimen/space_10"
+                    android:layout_width="@dimen/width_50"
+                    android:layout_height="match_parent"
+                    style="@style/info_common_description"/>
+
+                <EditText
+                    android:layout_marginTop="0dp"
+                    android:id="@+id/info_et_dates_from"
+                    android:layout_weight="1"
+                    style="@style/info_common_edit_text_date"/>
+
+                <TextView
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="@dimen/spacing_small"
+                    android:text="@string/to"
+                    android:gravity="center"
+                    android:layout_width="@dimen/width_50"
+                    android:layout_height="match_parent"
+                    style="@style/info_common_description"/>
+
+                <EditText
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="@dimen/spacing_tiny"
+                    android:id="@+id/info_et_dates_to"
+                    android:layout_weight="1"
+                    style="@style/info_common_edit_text_date"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--公司电话，担任职务，离职原因-->
+    <LinearLayout
+        style="@style/info_line_property"
+        android:weightSum="2">
+        <LinearLayout
+            style="@style/info_line_vertical_property"
+            android:paddingRight="@dimen/space_27">
+            <TextView
+                android:id="@+id/info_tv_contact_no"
+                style="@style/info_common_description"
+                android:text="@string/info_contact_no"/>
+            <EditText
+                android:inputType="phone"
+                android:id="@+id/info_et_contact_no"
+                style="@style/info_common_edit_text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/info_line_vertical_property"
+            android:paddingLeft="@dimen/space_27">
+            <TextView
+                android:id="@+id/info_tv_position"
+                style="@style/info_common_description"
+                android:text="@string/info_position"/>
+            <EditText
+                android:id="@+id/info_et_position"
+                style="@style/info_common_edit_text"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        style="@style/info_line_vertical_property">
+        <TextView
+            android:id="@+id/info_tv_leaving_reasons"
+            style="@style/info_common_description"
+            android:text="@string/info_leaving_reasons"/>
+        <EditText
+            android:id="@+id/info_et_leaving_reasons"
+            style="@style/info_common_edit_text"/>
+    </LinearLayout>
+
+    <!--证明人、关系、联系电话-->
+    <LinearLayout
+        style="@style/info_line_property"
+        android:weightSum="3">
+        <LinearLayout
+            android:paddingRight="@dimen/space_47"
+            style="@style/info_line_vertical_property">
+            <TextView
+                android:id="@+id/info_tv_referee"
+                style="@style/info_common_description"
+                android:text="@string/info_referee"/>
+            <EditText
+                android:id="@+id/info_et_referee"
+                style="@style/info_common_edit_text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingRight="@dimen/space_47"
+            style="@style/info_line_vertical_property">
+            <TextView
+                android:id="@+id/info_tv_relationship"
+                style="@style/info_common_description"
+                android:text="@string/info_relationship"/>
+            <EditText
+                android:id="@+id/info_et_relationship"
+                style="@style/info_common_edit_text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/info_line_vertical_property"
+            android:layout_marginLeft="@dimen/spacing_small">
+            <TextView
+                android:id="@+id/info_tv_telephone_no"
+                style="@style/info_common_description"
+                android:text="@string/info_referee_no"/>
+            <EditText
+                android:inputType="phone"
+                android:id="@+id/info_et_telephone_no"
+                style="@style/info_common_edit_text"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
