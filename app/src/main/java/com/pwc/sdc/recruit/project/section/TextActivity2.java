@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.pwc.sdc.recruit.R;
+
 
 /**
  * @author:dongpo 创建时间: 2016/9/3
