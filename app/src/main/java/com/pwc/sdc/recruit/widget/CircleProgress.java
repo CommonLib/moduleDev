@@ -76,6 +76,10 @@ public class CircleProgress extends View {
     //     4.长度变短阶段
     //     ...
     //     1.最小长度阶段
+    private boolean isFirst = true;
+    private long mStartMill;
+    private long mConstantMill;
+    private int count;
 
     public CircleProgress(Context context) {
         super(context);
@@ -103,6 +107,17 @@ public class CircleProgress extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        if (isFirst) {
+            mStartMill = System.currentTimeMillis();
+            isFirst = false;
+        }
+        mConstantMill = System.currentTimeMillis() - mStartMill;
+        if (mConstantMill > 10000) {
+            Log.e("Log_text", "CircleProgress+onDraw + count" + count);
+            count = 0;
+            isFirst = true;
+        }
+        count++;
         canvas.drawColor(Color.WHITE);
         switch (state) {
             case STATE_SHORT_SOLID:
