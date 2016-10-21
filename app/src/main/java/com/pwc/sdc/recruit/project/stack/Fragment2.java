@@ -1,9 +1,8 @@
-package com.pwc.sdc.recruit.project.section;
+package com.pwc.sdc.recruit.project.stack;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,11 +16,8 @@ import com.pwc.sdc.recruit.R;
  * 描述:
  * 修改:
  */
-public class TextSection2 extends Section implements View.OnClickListener {
+public class Fragment2 extends Fragment implements View.OnClickListener {
 
-    public TextSection2(Context context) {
-        super(context);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -74,15 +70,7 @@ public class TextSection2 extends Section implements View.OnClickListener {
     }
 
     @Override
-    public void onRestart() {
-        super.onRestart();
-        Log.d("section", "TextSection2+onRestart2_"+this);
-    }
-
-    @Override
     public void onClick(View v) {
-
-        mAttachActivity.startActivity(new Intent(mAttachActivity, TextActivity.class));
 
     }
 }

@@ -4,7 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+
+import com.pwc.sdc.recruit.R;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -15,17 +16,6 @@ import butterknife.OnClick;
  * 修改:
  */
 public class TextActivity extends SectionActivity {
-
-    @butterknife.Bind(R.id.section_add)
-    Button mSectionAdd;
-    @butterknife.Bind(R.id.section_remove)
-    Button mSectionRemove;
-    @butterknife.Bind(R.id.section_replace)
-    Button mSectionReplace;
-    @butterknife.Bind(R.id.section_show)
-    Button mSectionShow;
-    @butterknife.Bind(R.id.section_hide)
-    Button mSectionHide;
     private Section mSection;
     private int mCount;
     private TextSection mSection1;

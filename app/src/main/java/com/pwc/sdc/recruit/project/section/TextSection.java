@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.pwc.sdc.recruit.R;
+
 /**
  * @author:dongpo 创建时间: 9/2/2016
  * 描述:
