@@ -15,6 +15,7 @@ public final class FragmentStack {
     private FragmentActivity mActivity;
     private FragmentManager mFragmentManager;
     private int mContainerId;
+    private TopFragmentChangeListener mTopFragmentChangeListener;
 
     private FragmentStack(FragmentActivity activity, int containerId) {
         this.mActivity = activity;
@@ -41,91 +42,100 @@ public final class FragmentStack {
      * Replaces the entire mStack with this fragment.
      */
     public void replace(Fragment fragment, String tag) {
-        if (fragment != null) {
-            FragmentTransaction transaction = mFragmentManager.beginTransaction();
+        if (fragment == null) {
+            return;
+        }
+        FragmentTransaction transaction = mFragmentManager.beginTransaction();
+        if (fragment.isAdded()) {
+            clear(transaction, fragment);
+            showFragment(transaction, fragment, tag);
+        } else {
             clear(transaction);
             push(transaction, fragment, tag);
-            transaction.commit();
-            mStack.add(fragment);
         }
+        transaction.commit();
     }
 
-    /**
-     * replace top fragment only
-     */
-    public void replaceTop(Fragment fragment, String tag) {
-        if (fragment != null) {
-            FragmentTransaction transaction = mFragmentManager.beginTransaction();
-            Fragment topFragment = mStack.pollLast();
-            removeFragment(transaction, topFragment);
-            showFragment(transaction, fragment, tag);
-            transaction.commit();
-            mStack.add(fragment);
-        }
+    public LinkedList<Fragment> getLinkedList() {
+        return mStack;
     }
-
 
     /**
      * Adds a new fragment to the mStack and displays it.
      */
     public void push(Fragment fragment, String tag) {
-        if (fragment != null) {
-            FragmentTransaction transaction = mFragmentManager.beginTransaction();
-            showFragment(transaction, fragment, tag);
-            transaction.commit();
-            mStack.add(fragment);
+        if (fragment == null) {
+            return;
         }
+        FragmentTransaction transaction = mFragmentManager.beginTransaction();
+        showFragment(transaction, fragment, tag);
+        transaction.commit();
     }
 
-    private void push(FragmentTransaction transaction, Fragment fragment, String tag) {
-        if (fragment != null && !fragment.isAdded()) {
-            detachTop(transaction);
-            transaction.add(mContainerId, fragment, tag);
-        }
-    }
-
-    private void detachTop(FragmentTransaction transaction) {
-        if (mStack.size() > 0) {
-            Fragment f = mStack.peekLast();
-            hideFragment(transaction, f);
-        }
-    }
-
-    /**
-     * Removes the fragment at the top of the mStack and displays the previous one. This will not do
-     * anything if there is
-     * only one fragment in the mStack.
-     *
-     * @return Whether a transaction has been enqueued.
-     */
-    public void pop() {
+    public Fragment pop() {
         if (mStack.size() > 1) {
             FragmentTransaction transaction = mFragmentManager.beginTransaction();
-            removeFragment(transaction, mStack.pollLast());
+            Fragment popFragment = mStack.pollLast();
+            removeFragment(transaction, popFragment);
             Fragment f = mStack.peekLast();
             showFragment(transaction, f, f.getTag());
             transaction.commit();
+            return popFragment;
         }
+        return null;
     }
 
     public boolean hasBackStack() {
         return mStack.size() > 1;
     }
 
+    public void removeFragment(Fragment fragment) {
+        if (fragment != null && fragment.isAdded()) {
+            mFragmentManager.beginTransaction().remove(fragment).commit();
+            if (mStack.contains(fragment)) {
+                mStack.remove(fragment);
+            }
+        }
+    }
+
+    private void detachTop(FragmentTransaction transaction) {
+        if (mStack.size() > 0) {
+            Fragment f = mStack.peekLast();
+            if (f != null && f.isAdded() && !f.isHidden()) {
+                hideFragment(transaction, f);
+            }
+        }
+    }
+
     private void showFragment(FragmentTransaction transaction, Fragment fragment, String tag) {
+        if (fragment == null) {
+            return;
+        }
         if (fragment.isAdded()) {
             if (fragment.isHidden()) {
+                detachTop(transaction);
                 transaction.show(fragment);
+                mStack.remove(fragment);
+                mStack.addLast(fragment);
+                if (mTopFragmentChangeListener != null) {
+                    mTopFragmentChangeListener.onTopFragmentChange(fragment);
+                }
             }
+            // fragment is in show state, do nothing.
         } else {
+            //fragment is not added, add and show fragment.
             push(transaction, fragment, tag);
         }
     }
 
+    /**
+     * hide fragment divide hide() and remove()
+     *
+     * @param transaction
+     * @param fragment
+     */
     private void hideFragment(FragmentTransaction transaction, Fragment fragment) {
-        if (fragment.isAdded() && !fragment.isHidden()) {
-            transaction.hide(fragment);
-        }
+        transaction.hide(fragment);
     }
 
     private void clear(FragmentTransaction transaction) {
@@ -135,9 +145,47 @@ public final class FragmentStack {
         }
     }
 
+    /**
+     * clear stack but except one fragment which is already in stack.
+     *
+     * @param transaction
+     * @param exceptFragment fragment is in stack
+     */
+    private void clear(FragmentTransaction transaction, Fragment exceptFragment) {
+        while (mStack.size() > 0) {
+            Fragment fragment = mStack.pollLast();
+            if (fragment != exceptFragment) {
+                removeFragment(transaction, fragment);
+            }
+        }
+        mStack.addLast(exceptFragment);
+    }
+
     private void removeFragment(FragmentTransaction transaction, Fragment fragment) {
-        if (fragment != null && fragment.isAdded()) {
+        if (fragment == null) {
+            return;
+        }
+        if (fragment.isAdded()) {
             transaction.remove(fragment);
+        }
+    }
+
+    public void setTopFragmentChangeListener(TopFragmentChangeListener topFragmentChangeListener) {
+        mTopFragmentChangeListener = topFragmentChangeListener;
+    }
+
+    public interface TopFragmentChangeListener {
+        void onTopFragmentChange(Fragment topFragment);
+    }
+
+    private void push(FragmentTransaction transaction, Fragment fragment, String tag) {
+        if (fragment != null && !fragment.isAdded()) {
+            detachTop(transaction);
+            transaction.add(mContainerId, fragment, tag);
+            if (mTopFragmentChangeListener != null) {
+                mTopFragmentChangeListener.onTopFragmentChange(fragment);
+            }
+            mStack.addLast(fragment);
         }
     }
 }
