@@ -29,16 +29,13 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustResize">
-
-        </activity>
-        <activity android:name=".business.text.TextActivity">
-
-        </activity>
-        <activity android:name=".project.stack.StackActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".business.text.TextActivity">
+
         </activity>
         <activity android:name=".business.finder.JobFinderActivity">
 

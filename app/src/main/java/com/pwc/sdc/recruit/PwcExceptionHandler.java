@@ -94,6 +94,7 @@ public class PwcExceptionHandler implements Thread.UncaughtExceptionHandler {
     public void uncaughtException(Thread thread, Throwable ex) {
         try {
             saveCrashReport(ex);
+            ex.printStackTrace();
             if (TLog.DEBUG) {
                 mDefault.uncaughtException(thread, ex);
             }

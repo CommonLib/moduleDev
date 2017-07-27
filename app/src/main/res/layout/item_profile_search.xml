@@ -12,7 +12,8 @@
     android:paddingBottom="@dimen/space_10"
     android:layout_margin="@dimen/space_13"
     android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:clickable="true">
 
     <LinearLayout
         android:id="@+id/search_ll_profile"

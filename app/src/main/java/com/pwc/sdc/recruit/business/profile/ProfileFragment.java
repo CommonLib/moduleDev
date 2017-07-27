@@ -6,6 +6,7 @@ import android.graphics.Rect;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -37,6 +38,7 @@ import com.thirdparty.proxy.utils.DensityUtil;
 import com.thirdparty.proxy.utils.WindowUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -46,7 +48,9 @@ import butterknife.BindView;
  * 描述:
  * 修改:
  */
-public class ProfileFragment extends BaseFragment<ProfilePresenter> implements ProfileAdapter.onChildClickListener, View.OnClickListener, TextView.OnEditorActionListener, DialogInterface.OnDismissListener {
+public class ProfileFragment extends BaseFragment<ProfilePresenter>
+        implements ProfileAdapter.onChildClickListener, View.OnClickListener,
+                   TextView.OnEditorActionListener, DialogInterface.OnDismissListener {
 
     @BindView(R.id.search_rv_content)
     RecyclerView mSearchRvContent;
@@ -68,13 +72,14 @@ public class ProfileFragment extends BaseFragment<ProfilePresenter> implements P
 
     @Override
     protected void initView() {
-        mPullToRefreshView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                mPullToRefreshView.autoRefresh(true);
-                mPullToRefreshView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-            }
-        });
+        mPullToRefreshView.getViewTreeObserver()
+                .addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                    @Override
+                    public void onGlobalLayout() {
+                        mPullToRefreshView.autoRefresh(true);
+                        mPullToRefreshView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                    }
+                });
         mPullToRefreshView.setKeepHeaderWhenRefresh(true);
     }
 
@@ -82,22 +87,65 @@ public class ProfileFragment extends BaseFragment<ProfilePresenter> implements P
     protected void initData() {
         mSearchRvContent.setVisibility(View.VISIBLE);
         mManager = new GridLayoutManager(getContext(), 3, LinearLayoutManager.VERTICAL, false);
-        mProfileAdapter = new ProfileAdapter(new ArrayList<Profile>(), R.layout.item_profile_search);
-        View footer = LayoutInflater.from(getContext()).inflate(R.layout.footer_load_more, null, false);
+        mProfileAdapter = new ProfileAdapter(new ArrayList<Profile>(),
+                R.layout.item_profile_search);
+        View footer = LayoutInflater.from(getContext())
+                .inflate(R.layout.footer_load_more, null, false);
         mProfileLoadMoreFooter = mActivity.addLoadingStateView(footer);
-        mProfileLoadMoreFooter.setEmptyText(getString(R.string.search_load_more_no_more), 14, getColor(R.color.black_3f));
-        mProfileLoadMoreFooter.setErrorText(getString(R.string.search_load_failed), 14, getColor(R.color.black_3f));
+        mProfileLoadMoreFooter.setEmptyText(getString(R.string.search_load_more_no_more), 14,
+                getColor(R.color.black_3f));
+        mProfileLoadMoreFooter.setErrorText(getString(R.string.search_load_failed), 14,
+                getColor(R.color.black_3f));
         mProfileAdapter.addFooter(mProfileLoadMoreFooter);
         hideProfileFooter();
         mManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                return (mProfileAdapter.isHeaderType(position) || mProfileAdapter.isFooterType(position)) || mProfileAdapter.isTimeStamp(position) ? mManager.getSpanCount() : 1;
+                return (mProfileAdapter.isHeaderType(position) || mProfileAdapter
+                        .isFooterType(position)) || mProfileAdapter.isTimeStamp(position) ? mManager
+                        .getSpanCount() : 1;
             }
         });
 
         mSearchRvContent.setLayoutManager(mManager);
         mSearchRvContent.setAdapter(mProfileAdapter);
+        ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.Callback() {
+            @Override
+            public int getMovementFlags(RecyclerView recyclerView,
+                                        RecyclerView.ViewHolder viewHolder) {
+                return makeMovementFlags(
+                        ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.LEFT
+                                | ItemTouchHelper.RIGHT, 0);
+            }
+
+            @Override
+            public boolean isLongPressDragEnabled() {
+                return true;
+            }
+
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,
+                                  RecyclerView.ViewHolder target) {
+                if (viewHolder.getItemViewType() == target.getItemViewType()) {
+                    Collections.swap(mProfileAdapter.getData(R.layout.item_profile_search),
+                            viewHolder.getAdapterPosition(), target.getAdapterPosition());
+                    mProfileAdapter.notifyItemMoved(viewHolder.getAdapterPosition(),
+                            target.getAdapterPosition());
+                    return true;
+                }
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+            }
+
+            @Override
+            public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+                super.clearView(recyclerView, viewHolder);
+            }
+        });
+        helper.attachToRecyclerView(mSearchRvContent);
         mSearchRvContent.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -154,8 +202,10 @@ public class ProfileFragment extends BaseFragment<ProfilePresenter> implements P
     public void showAssignDialog(List<Recruiter> recruiters, List<RecruiterCandidate> candidate) {
         mAssignDialog = new Dialog(mActivity, R.style.popupDialog);
         initDialog(mAssignDialog);
-        mAssignRvCandidateRecruiter = (RecyclerView) mAssignDialog.findViewById(R.id.assign_rv_candidate_recruiter);
-        mAssignRvChosenRecruiter = (FooterAutoRecycleView) mAssignDialog.findViewById(R.id.assign_rv_chosen_recruiter);
+        mAssignRvCandidateRecruiter = (RecyclerView) mAssignDialog
+                .findViewById(R.id.assign_rv_candidate_recruiter);
+        mAssignRvChosenRecruiter = (FooterAutoRecycleView) mAssignDialog
+                .findViewById(R.id.assign_rv_chosen_recruiter);
         initChosenRV(recruiters);
         initCandidateRV(candidate);
         mAssignRvChosenRecruiter.scrollToPosition(mChosenAdapter.getItemCount() - 1);
@@ -175,7 +225,8 @@ public class ProfileFragment extends BaseFragment<ProfilePresenter> implements P
         DisplayMetrics dm = new DisplayMetrics();
         mActivity.getWindowManager().getDefaultDisplay().getMetrics(dm);
         Rect rect = new Rect();
-        View view = mActivity.getWindow().getDecorView();//decorView是window中的最顶层view，可以从window中获取到decorView
+        View view = mActivity.getWindow()
+                .getDecorView();//decorView是window中的最顶层view，可以从window中获取到decorView
         view.getWindowVisibleDisplayFrame(rect);
         lay.height = dm.heightPixels - rect.top;
         lay.width = dm.widthPixels;
@@ -187,10 +238,12 @@ public class ProfileFragment extends BaseFragment<ProfilePresenter> implements P
      * 初始化面试官已选列表的recycleView
      */
     private void initChosenRV(List<Recruiter> recruiters) {
-        mChosenManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        mChosenManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL,
+                false);
         mAssignRvChosenRecruiter.setLayoutManager(mChosenManager);
         mChosenAdapter = new AssignChosenAdapter(recruiters, R.layout.item_assgin_chosen);
-        mChosenSearchFooter = (LinearLayout) inflateView(R.layout.item_assgin_chosen_search, mAssignRvChosenRecruiter);
+        mChosenSearchFooter = (LinearLayout) inflateView(R.layout.item_assgin_chosen_search,
+                mAssignRvChosenRecruiter);
         mEmployeeSearch = (EditText) mChosenSearchFooter.findViewById(R.id.chosen_et_search);
         mEmployeeSearch.setOnEditorActionListener(this);
         mEmployeeSearch.addTextChangedListener(new TextWatcher() {
@@ -226,7 +279,7 @@ public class ProfileFragment extends BaseFragment<ProfilePresenter> implements P
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if(mAssignRvCandidateRecruiter != null){
+        if (mAssignRvCandidateRecruiter != null) {
             mAssignRvChosenRecruiter.removeGlobalOnLayoutListener();
         }
     }
@@ -235,13 +288,17 @@ public class ProfileFragment extends BaseFragment<ProfilePresenter> implements P
      * 初始化面试官候选列的recycleView
      */
     private void initCandidateRV(List<RecruiterCandidate> candidate) {
-        mCandidateManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-        mCandidateAdapter = new AssignCandidateAdapter(candidate, R.layout.item_assgin_recruiter_candidate);
+        mCandidateManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,
+                false);
+        mCandidateAdapter = new AssignCandidateAdapter(candidate,
+                R.layout.item_assgin_recruiter_candidate);
         mAssignRvCandidateRecruiter.setLayoutManager(mCandidateManager);
         View candidateRecruiterFooter = inflateView(R.layout.view_footer_recruiter_candidate);
         mRecruiterLoadMoreFooter = mActivity.addLoadingStateView(candidateRecruiterFooter);
-        mRecruiterLoadMoreFooter.setEmptyText(getString(R.string.search_load_more_no_more), 18, getColor(R.color.white));
-        mRecruiterLoadMoreFooter.setErrorText(getString(R.string.search_load_failed), 18, getColor(R.color.white));
+        mRecruiterLoadMoreFooter.setEmptyText(getString(R.string.search_load_more_no_more), 18,
+                getColor(R.color.white));
+        mRecruiterLoadMoreFooter
+                .setErrorText(getString(R.string.search_load_failed), 18, getColor(R.color.white));
         mCandidateAdapter.addFooter(mRecruiterLoadMoreFooter);
         mAssignRvCandidateRecruiter.setAdapter(mCandidateAdapter);
         ItemDecorateLine dividerLine = new ItemDecorateLine();
@@ -258,12 +315,14 @@ public class ProfileFragment extends BaseFragment<ProfilePresenter> implements P
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 if (isRecruiterFooterShow()) {
-                    mPresenter.onRecruiterRecycleViewScroll(mCandidateManager, mCandidateAdapter, dy);
+                    mPresenter
+                            .onRecruiterRecycleViewScroll(mCandidateManager, mCandidateAdapter, dy);
                 }
             }
         });
 
-        mRecruiterCandidateLoadStateView = mActivity.addLoadingStateView(mAssignRvCandidateRecruiter);
+        mRecruiterCandidateLoadStateView = mActivity
+                .addLoadingStateView(mAssignRvCandidateRecruiter);
 
     }
 
@@ -328,7 +387,8 @@ public class ProfileFragment extends BaseFragment<ProfilePresenter> implements P
      */
     @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-        if (actionId == EditorInfo.IME_ACTION_SEND || (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
+        if (actionId == EditorInfo.IME_ACTION_SEND || (event != null
+                && event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
             int action = event.getAction();
             if (action == KeyEvent.ACTION_UP) {
                 String keyword = mEmployeeSearch.getText().toString().trim();

@@ -3,6 +3,7 @@ package com.pwc.sdc.recruit.base;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -48,7 +49,7 @@ public abstract class ToolBarActivity<T extends ActivityPresenter> extends BaseA
     protected View onDealWithContentView(View contentView) {
         LinearLayout newContent = new LinearLayout(this);
         newContent.setOrientation(LinearLayout.VERTICAL);
-        mInflater.from(this).inflate(R.layout.view_tool_bar, newContent, true);
+        LayoutInflater.from(this).inflate(R.layout.view_tool_bar, newContent, true);
         newContent.addView(contentView);
 
         LinearLayout.LayoutParams contentViewLayoutParams = (LinearLayout.LayoutParams) contentView.getLayoutParams();

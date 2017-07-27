@@ -50,7 +50,8 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
     private View mDialogCustomView;
 
     @Override
-    protected void onActivityCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         PwcApplication.getInstance().addActivity(this);
         mPresenter = TUtil.getT(this, 0);
         mPresenter.setViewLayer(this);
@@ -93,7 +94,8 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
         LoadStateFrameLayout loadstateView = new LoadStateFrameLayout(this);
         ViewGroup parent = (ViewGroup) targetView.getParent();
         ViewGroup.LayoutParams targetParams = targetView.getLayoutParams();
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
         if (targetParams == null) {
             targetParams = params;
@@ -119,7 +121,8 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
     public PtrFrameLayout addPullToRefreshView(View targetView) {
         ViewGroup parent = (ViewGroup) targetView.getParent();
         ViewGroup.LayoutParams targetParams = targetView.getLayoutParams();
-        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         PtrFrameLayout ptr = null;
 
         if (targetParams == null) {
@@ -130,12 +133,14 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
         if (parent != null) {
             int index = parent.indexOfChild(targetView);
             parent.removeView(targetView);
-            ptr = (PtrFrameLayout) LayoutInflater.from(this).inflate(R.layout.fragment_base, parent, false);
+            ptr = (PtrFrameLayout) LayoutInflater.from(this)
+                    .inflate(R.layout.fragment_base, parent, false);
             FrameLayout content = (FrameLayout) ptr.getContentView();
             content.addView(targetView);
             parent.addView(ptr, index, targetParams);
         } else {
-            ptr = (PtrFrameLayout) LayoutInflater.from(this).inflate(R.layout.fragment_base, null, false);
+            ptr = (PtrFrameLayout) LayoutInflater.from(this)
+                    .inflate(R.layout.fragment_base, null, false);
             FrameLayout content = (FrameLayout) ptr.getContentView();
             ptr.setLayoutParams(targetParams);
             content.addView(targetView);
@@ -272,11 +277,13 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
         return showAlertDialog(message, resId, confirm, null);
     }
 
-    public AlertDialog showAlertDialog(String message, int resId, View.OnClickListener confirm, View.OnClickListener cancel) {
+    public AlertDialog showAlertDialog(String message, int resId, View.OnClickListener confirm,
+                                       View.OnClickListener cancel) {
         return showAlertDialog(message, resId, confirm, cancel, -1);
     }
 
-    public AlertDialog showAlertDialog(String message, int resId, View.OnClickListener confirm, View.OnClickListener cancel, int themeId) {
+    public AlertDialog showAlertDialog(String message, int resId, View.OnClickListener confirm,
+                                       View.OnClickListener cancel, int themeId) {
 
         mDialogCustomView = inflate(resId);
         AlertDialog.Builder builder = null;
@@ -316,7 +323,8 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
         return showPopUpWindow(contentView, width, height, showAsDrop, 0, 0);
     }
 
-    public PopupWindow showPopUpWindow(View contentView, int width, int height, View showAsDrop, int offsetX, int offsetY) {
+    public PopupWindow showPopUpWindow(View contentView, int width, int height, View showAsDrop,
+                                       int offsetX, int offsetY) {
         if (mIsVisible) {
             _popWindow = new PopupWindow(contentView, width, height);
             _popWindow.showAsDropDown(showAsDrop, offsetX, offsetY);
@@ -335,12 +343,7 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
 
     @Override
     public void onBackPressed() {
-        if (mSectionManager.hasBackStack()) {
-            mSectionManager.popStack();
-            return;
-        }
         super.onBackPressed();
-
     }
 
     /**
@@ -425,6 +428,37 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
         startActivityForResult(intent, requestCode);
     }
 
+    /*public void addFragment(int container, BaseFragment fragment) {
+        if (fragment != null && !fragment.isAdded()) {
+            String tag = fragment.getClass().getName();
+            mSectionManager.beginTransaction().add(container, fragment, tag).commit();
+        }
+    }
+
+    public void showFragmentToBackStack(BaseFragment fragment) {
+        if (fragment != null && fragment.isAdded()) {
+            mSectionManager.beginTransaction().show(fragment).commit();
+        }
+    }
+
+    public void hideFragment(BaseFragment fragment) {
+        if (fragment != null && fragment.isAdded()) {
+            mSectionManager.beginTransaction().hide(fragment).commit();
+        }
+    }
+
+    public void replaceFragment(int container, BaseFragment fragment) {
+        if (fragment != null) {
+            mSectionManager.beginTransaction().replace(container, fragment).commit();
+        }
+    }
+
+    public BaseFragment findFragmentByClazz(Class<? extends BaseFragment> clazz) {
+        String tag = clazz.getSimpleName();
+        return (BaseFragment) mSectionManager.findFragmentByTag(tag);
+        //        return (BaseFragment) getSectionManager().findSectionByTag(tag);
+    }*/
+
     public void addFragment(int container, BaseFragment fragment) {
         if (fragment != null && !fragment.isAdded()) {
             String tag = fragment.getClass().getName();
@@ -432,28 +466,9 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
         }
     }
 
-    public void addFragmentToBackStack(int container, BaseFragment fragment) {
-        if (fragment != null && !fragment.isAdded()) {
-            String tag = fragment.getClass().getSimpleName();
-            mSectionManager.add(container, fragment, tag, true);
-        }
-    }
-
-    public void removeFragment(BaseFragment fragment) {
-        if (fragment != null && fragment.isAdded()) {
-            mSectionManager.remove(fragment);
-        }
-    }
-
-    public void showFragment(BaseFragment fragment) {
-        if (fragment != null && fragment.isAdded()) {
-            mSectionManager.show(fragment);
-        }
-    }
-
     public void showFragmentToBackStack(BaseFragment fragment) {
         if (fragment != null && fragment.isAdded()) {
-            mSectionManager.show(fragment, true);
+            mSectionManager.show(fragment);
         }
     }
 
@@ -465,8 +480,13 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
 
     public void replaceFragment(int container, BaseFragment fragment) {
         if (fragment != null) {
-            getSectionManager().replace(container, fragment, false);
+            mSectionManager.replace(container, fragment, false);
         }
+    }
+
+    public BaseFragment findFragmentByClazz(Class<? extends BaseFragment> clazz) {
+        String tag = clazz.getSimpleName();
+        return (BaseFragment) mSectionManager.findSectionByTag(tag);
     }
 
     public void startFragment(int container, BaseFragment targetFragment, Bundle bundle) {
@@ -476,7 +496,7 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
                 targetFragment.onNewBundle(bundle);
             }
         } else {
-            addFragmentToBackStack(container, targetFragment);
+            addFragment(container, targetFragment);
             if (bundle != null) {
                 String tag = targetFragment.getClass().getSimpleName();
                 bundle.putString(FRAGMENT_MESSAGE_HEADER, tag);
@@ -500,14 +520,9 @@ public abstract class BaseActivity<T extends ActivityPresenter> extends SectionA
     }
 
     public void sendParcelToFragment(BaseFragment baseFragment, Bundle bundle) {
-        bundle.putString(BaseActivity.FRAGMENT_MESSAGE_HEADER, baseFragment.getClass().getSimpleName());
+        bundle.putString(BaseActivity.FRAGMENT_MESSAGE_HEADER,
+                baseFragment.getClass().getSimpleName());
         setTag(bundle);
-    }
-
-    public BaseFragment findFragmentByClazz(Class<? extends BaseFragment> clazz) {
-        String tag = clazz.getSimpleName();
-//        return (BaseFragment) mSectionManager.findFragmentByTag(tag);
-        return (BaseFragment) getSectionManager().findSectionByTag(tag);
     }
 
     public void setTag(Bundle bundle) {

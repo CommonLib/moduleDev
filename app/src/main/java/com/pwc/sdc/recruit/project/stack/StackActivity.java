@@ -50,7 +50,7 @@ public class StackActivity extends AppCompatActivity {
                 break;
             case R.id.stack_replace_top:
                 Fragment3 fragment3 = new Fragment3();
-                mStack.replaceTop(fragment3, "fragment3");
+                mStack.replace(fragment3, "fragment3");
                 break;
             case R.id.stack_replace:
                 Fragment3 fragment4 = new Fragment3();

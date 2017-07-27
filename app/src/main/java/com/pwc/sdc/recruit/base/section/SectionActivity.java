@@ -15,16 +15,13 @@ public class SectionActivity extends AppCompatActivity {
     private int mActivityState = 0;
 
     @Override
-    protected final void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mSectionManager = new SectionManager(this);
         mActivityState = Section.STATE_ON_CREATE;
-        onActivityCreate(savedInstanceState);
         mSectionManager.onCreate(savedInstanceState);
     }
 
-    protected void onActivityCreate(@Nullable Bundle savedInstanceState) {
-    }
 
     protected SectionManager getSectionManager(){
         return mSectionManager;

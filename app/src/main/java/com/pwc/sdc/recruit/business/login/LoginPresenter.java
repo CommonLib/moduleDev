@@ -15,6 +15,7 @@ import com.pwc.sdc.recruit.constants.Constants;
 import com.pwc.sdc.recruit.data.model.User;
 import com.pwc.sdc.recruit.manager.AccountManager;
 import com.pwc.sdc.recruit.manager.CandidateManager;
+import com.thirdparty.proxy.cache.SharedPreHelper;
 import com.thirdparty.proxy.net.http.retrofit.HttpResponse;
 import com.thirdparty.proxy.net.http.retrofit.rx.HttpSubscriber;
 import com.thirdparty.proxy.utils.CyptoUtils;
@@ -54,6 +55,7 @@ public class LoginPresenter extends BasePresenter<LoginActivity, LoginMode> impl
         if ("zh".equalsIgnoreCase(currentLocale.getLanguage())) {
             return;
         }
+        SharedPreHelper.put(mViewLayer,Constants.KEY_LANGUAGE, Constants.LANGUAGE_CHINESE);
         switchLanguage(Locale.CHINESE);
     }
 
@@ -63,6 +65,7 @@ public class LoginPresenter extends BasePresenter<LoginActivity, LoginMode> impl
         if (currentLocale == Locale.ENGLISH) {
             return;
         }
+        SharedPreHelper.put(mViewLayer,Constants.KEY_LANGUAGE, Constants.LANGUAGE_ENGLISH);
         switchLanguage(Locale.ENGLISH);
     }
 

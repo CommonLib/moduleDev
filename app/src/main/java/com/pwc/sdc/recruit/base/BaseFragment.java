@@ -39,10 +39,6 @@ public abstract class BaseFragment<T extends ActivityPresenter> extends Section 
     protected T mPresenter;
     protected PtrFrameLayout mPullToRefreshView;
 
-    public BaseFragment() {
-        super(PwcApplication.getInstance());
-    }
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);

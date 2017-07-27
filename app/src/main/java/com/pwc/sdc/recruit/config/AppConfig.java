@@ -40,7 +40,8 @@ public class AppConfig {
      * 拍摄头像存放位置，因调用系统相机，路径为 sd卡/android/包名/cache
      */
     public static final String PATH_HEAD = PwcApplication.getInstance().getExternalCacheDir() + File.separator + "Head";
-    public static String BASE_URL = "http://sinw069030:8080/RecruitmentSystem/";
+//    public static String BASE_URL = "http://sinw069030:8080/RecruitmentSystem/";
+    public static String BASE_URL = "http://strw129021:8080/RecruitmentSystem/";
 
     /**
      * 网络请求2秒内多次点击Button或者其他view无效

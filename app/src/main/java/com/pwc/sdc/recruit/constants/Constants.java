@@ -49,4 +49,7 @@ public class Constants {
     public static final String PROFILE_LANGUAGE_FORMAT_CHNIESE = "chinese";
     public static final String KEY_TOKEN = "token";
     public static final String TOKEN_DES_PRIVATE = "pwc/eApplication";
+    public static final String KEY_LANGUAGE = "language";
+    public static final String LANGUAGE_CHINESE = "chinese";
+    public static final String LANGUAGE_ENGLISH = "english";
 }

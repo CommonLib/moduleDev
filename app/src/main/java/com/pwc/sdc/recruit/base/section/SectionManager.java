@@ -1,6 +1,5 @@
 package com.pwc.sdc.recruit.base.section;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -164,7 +163,7 @@ public class SectionManager {
         Section topShowSection = getTopShowSectionFromList(containId);
         //获取在添加新的section前，正在显示的section
         if (topShowSection == null) {
-            DefaultSection defaultSection = new DefaultSection(mAttachActivity);
+            DefaultSection defaultSection = new DefaultSection();
             replace(containId, defaultSection, true);
             topShowSection = defaultSection;
         }
@@ -693,9 +692,6 @@ public class SectionManager {
     }
 
     public class DefaultSection extends Section {
-        public DefaultSection(Context context) {
-            super(context);
-        }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

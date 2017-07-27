@@ -1,16 +1,16 @@
 package com.pwc.sdc.recruit.base.section;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
+
+import com.pwc.sdc.recruit.PwcApplication;
 
 /**
  * @author:dongpo 创建时间: 9/2/2016
@@ -54,12 +54,8 @@ public class Section extends FrameLayout {
     private int mLeftExitAnim;
     private int mRightEnterAnim;
 
-    public Section(Context context) {
-        super(context);
-    }
-
-    public Section(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    public Section() {
+        super(PwcApplication.getInstance());
     }
 
     public void onAttach(Activity activity) {
