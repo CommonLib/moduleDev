@@ -1,0 +1,218 @@
+<resources>
+    <string name="app_name">eApplication</string>
+
+    <!--登录界面-->
+    <string name="login">Login</string>
+    <string name="login_create_profile">Create Profile</string>
+    <string name="login_for_candidate">(For Candidates)</string>
+    <string name="login_input_username">User Name</string>
+    <string name="login_input_password">User Password</string>
+    <string name="login_recruiter">Recruiter/Reception Login</string>
+    <string name="login_language_cn">中文</string>
+    <string name="login_language_en">English</string>
+    <string name="login_username_can_not_null">User name can\'t be empty</string>
+    <string name="login_password_can_not_null">Password can\'t be empty</string>
+    <string name="login_account_not_exit">Account is not exit</string>
+    <string name="login_password_not_correct">wrong password</string>
+
+    <!--拍照页面-->
+    <string name="photo_take_photo">Please take your ID photo</string>
+
+    <!--确认页面-->
+    <string name="photo_retake">Retake</string>
+    <string name="photo_use_photo">Use Photo</string>
+
+    <!--信息页面-->
+    <string name="info_notes_remark">Note: * Marked Items Required</string>
+    <string name="info_base_information">Basic Information</string>
+    <string name="info_chinese_name">Chinese Name(if have):</string>
+    <string name="info_english_name">*English Name(Same as your passport):</string>
+    <string name="info_gender_male">Male</string>
+    <string name="info_gender_female">Female</string>
+    <string name="info_date_of_birth">*Date of Birth:</string>
+    <string name="info_marital_status">*Marital Status:</string>
+    <string name="info_marital_status_married">Married</string>
+    <string name="info_marital_status_single">Single</string>
+    <string name="info_identity_card">*Chinese Identity No:</string>
+    <string name="info_passport_no">*Passport No:</string>
+    <string name="info_country">Country:</string>
+    <string name="info_academic_degree">*Academic Degree:</string>
+    <string name="info_academic_degree_college">College</string>
+    <string name="info_academic_degree_bachelor">Bachelor</string>
+    <string name="info_academic_degree_master">Master</string>
+    <string name="info_academic_degree_doctorate">Doctorate</string>
+    <string name="info_academic_degree_doctorate_senior">Post-Doctor</string>
+    <string name="info_graduate_school">*Graduate School:</string>
+    <string name="info_graduate_date">Graduate Date:</string>
+    <string name="info_language_english">English:</string>
+    <string name="info_language">*Language(English, Japanese, and others must choose one):</string>
+    <string name="info_language_excellent">Excellent</string>
+    <string name="info_language_good">Good</string>
+    <string name="info_language_fair">Fair</string>
+    <string name="info_language_poor">Poor</string>
+    <string name="info_language_japanese_level1">JLPT-1</string>
+    <string name="info_language_japanese_level2">JLPT-2</string>
+    <string name="info_language_japanese_level3">JLPT-3</string>
+    <string name="info_language_japanese">Japanese:</string>
+    <string name="info_language_others">Others:</string>
+    <string name="info_major">*Major:</string>
+    <string name="info_email">*Email:</string>
+    <string name="info_mobile">*Mobile:</string>
+    <string name="info_telephone">Telephone:</string>
+    <string name="info_current_address">*Current Address:</string>
+    <string name="info_post_code">Post Code:</string>
+    <string name="info_emergency_contact">*Emergency Contact:</string>
+    <string name="info_relationship">*Relationship:</string>
+    <string name="info_telephone_no">*Telephone NO.:</string>
+    <string name="info_medical_history">*Medical History:</string>
+    <string name="info_yes">Yes</string>
+    <string name="info_no">No</string>
+    <string name="info_employee_referral">*Is there any Employee referral?</string>
+    <string name="info_yes_referrer_name">Yes, Referrer Name</string>
+    <string name="info_has_friend_pwc">*Have relatives or friends working in PWC?</string>
+    <string name="info_yes_friend_name">Yes, Her/His Name</string>
+    <string name="info_hobbies">Hobbies/Sports/Other Interests:</string>
+    <string name="info_take_service">Take Service:</string>
+
+    <string name="info_position_information">Position Information</string>
+    <string name="info_position_applied_for">*Position Applied for:</string>
+    <string name="info_working_experience">*Working Experience:</string>
+    <string name="info_years">Years</string>
+    <string name="info_recruitment_channel">*Recruitment Channel:</string>
+    <string name="info_channel_headhunting">Headhunting</string>
+    <string name="info_51job">51job</string>
+    <string name="info_employee">Employee Referral</string>
+    <string name="info_wechat">WeChat</string>
+    <string name="info_zhilian">Zhi Lian</string>
+    <string name="info_date_available">*Date Available:</string>
+    <string name="info_work_experience">Work Experience(Please fill your recent job)</string>
+    <string name="info_company_name">*Company Name:</string>
+    <string name="info_dates_from_to">*Dates:</string>
+    <string name="info_contact_no">*Co. Contact NO.:</string>
+    <string name="info_position">*Position:</string>
+    <string name="info_leaving_reasons">*Leaving Reason(s):</string>
+    <string name="info_referee">*Referee:</string>
+    <string name="info_referee_no">*Referee contact NO.:</string>
+    <string name="info_next_step">Next</string>
+    <string name="toast_pls_input">Please fill</string>
+    <string name="toast_pls_choose">Please choose "</string>
+    <string name="toast_pls_choose_gender">Please choose "gender"</string>
+    <string name="toast_content">blank</string>
+    <string name="alert_dialog_message">Please fill all the marked items</string>
+    <string name="alert_dialog_message_regulation">Please agree with employment regulation
+        and sign your name</string>
+    <string name="alert_dialog_message_success">Please return the device to reception</string>
+    <string name="submit_failed">Submit Failed</string>
+    <string name="submit_success">Submit Success</string>
+    <string name="confirm">OK</string>
+    <string name="loading">loading</string>
+
+    <!--员工规定页面-->
+    <string name="regulation_body_header">In order to hire the qualified employees and maintain the good image of PricewaterhouseCoopers Information Technologies (Shanghai) Co., Ltd. (the firm), all new hires should comply with the following employment regulation which are enacted according to China related laws and regulations:</string>
+    <string name="regulation_title1_health">1. Health</string>
+    <string name="regulation_health_body1">The new hires should go to the assigned hospital to take the physical check, which result should show that they are eligible to take the job according to the different requirments of the positions.</string>
+    <string name="regulation_health_body2">The new hires can\'t hide any Psychological diseases, any infectious disease or any human organs defect caused by a disease or the congenital.</string>
+
+    <string name="regulation_title2_morality">2. Morality</string>
+    <string name="regulation_morality_body1">Employees must not only be honest and faithful, but also comply with the policies of the firm and the laws of the country.</string>
+    <string name="regulation_morality_body2">Employees can\'t hide the experiences of any administrative penalty, security punishment or criminal punishment.</string>
+
+
+    <string name="regulation_title3_education_work">3. Education and Working Experiences</string>
+    <string name="regulation_education_work_body1">The education of the new hires is qualified with the requirements of the job position they apply for.</string>
+    <string name="regulation_education_work_body2">The new hires can\'t hide, forge or falsify their education certificates, professional qualification certificates, working experiences or the physical check report of new hires.</string>
+    <string name="regulation_education_work_body3">The new hires can\'t hide the facts that they signed the Non-Competing Agreement or the Confidentiality Agreement with the former employers.</string>
+
+    <string name="regulation_title4_Explanation">4. Enactment &#038; Explanation</string>
+    <string name="regulation_Explanation_body1">This regulation was enacted and can be explained by HR Team of the firm.</string>
+
+    <string name="regulation_declaration">Declaration</string>
+    <string name="regulation_declaration_body1">I hereby certify all of the statements made on the employment application form are true and complete and I understand that omission or misrepresentation of any fact may result in refusal of employment or immediate dismissal.</string>
+    <string name="regulation_declaration_body2">I recognize that in connection with employment with PricewaterhouseCoopers Information Technologies (Shanghai) Co., Ltd. I may be the subject of a background enquiry by PricewaterhouseCoopers Information Technologies (Shanghai) Co., Ltd. and I hereby authorize the same.</string>
+    <string name="regulation_signed">Signed	:	</string>
+    <string name="regulation_date">Date	:	</string>
+    <string name="regulation_submit">Submit</string>
+
+    <!--简历检索页面-->
+    <string name="search_candidate_cn_name">Chinese Name:</string>
+    <string name="search_candidate_en_name">English Name:</string>
+    <string name="search_candidate_phone">Phone:</string>
+    <string name="search_candidate_email">Email:</string>
+    <string name="search_candidate_interview_date">InterView Date:</string>
+    <string name="search_candidate_recruiter">Recruiter:</string>
+    <string name="search_candidate_position">Position Applied for</string>
+    <string name="search_candidate_status">Employment Status：</string>
+    <string name="search_add_recruit">To Be Assigned</string>
+    <string name="search_edit_assign">Edit Assignment</string>
+    <string name="search">Search</string>
+    <string name="search_submitted_profile">Submitted Profiles</string>
+    <string name="search_not_filled">Not Filled</string>
+    <string name="search_load_more_failed">Loading Failed, Please check your network</string>
+    <string name="search_load_more_success">Loading Success</string>
+    <string name="search_load_more_loading">Loading</string>
+    <string name="search_load_more_no_more">No more data</string>
+    <string name="search_load_failed">Loading Failed</string>
+    <string name="search_pull_refresh">Pull To Refresh</string>
+    <string name="search_pull_drop_refresh">Release To Refresh</string>
+    <string name="search_pull_loading">Refreshing</string>
+    <string name="search_pull_complete">Refresh Completed</string>
+    <string name="cancel">Cancel</string>
+    <string name="recruiter_exit">Recruiter already added</string>
+    <string name="load_state_empty">Can\'t find nothing</string>
+    <string name="load_state_error">Loading failed, Please check your network</string>
+    <string name="load_state_loading">loading</string>
+
+    <!--添加意见页面-->
+    <string name="comment">Comments</string>
+    <string name="comment_offer">Offer</string>
+    <string name="comment_next_ground">Move to next round</string>
+    <string name="comment_keep_file">Keeping file</string>
+    <string name="comment_reject">Reject</string>
+    <string name="comment_interviewer">InterViewer</string>
+    <string name="comment_level">Level</string>
+    <string name="alert_dialog_message_comment">Please fill comment completely</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="from">From</string>
+    <string name="example">Example:1990/05/25</string>
+    <string name="example_experience_from">Example:2008/04/20</string>
+    <string name="example_experience_to">Example:2011/11/25</string>
+    <string name="to">To</string>
+    <string name="search_cn_name">Search CN name</string>
+    <string name="search_cn_name_pinyin">Search PinYin</string>
+    <string name="search_en_name">Search EN name</string>
+    <string name="search_phone">Search phone</string>
+    <string name="search_date">Search Date</string>
+    <string name="search_email">Search Email</string>
+    <string name="search_status">Search states</string>
+    <string name="recruiter_name">Name</string>
+    <string name="recruiter_guid">GUID</string>
+    <string name="recruiter_department">Department</string>
+    <string name="no_available_recruiter">No available recruiter</string>
+    <string name="no_sd_card">No available external storage, please insert and try again</string>
+    <string name="upload_success">Upload Success</string>
+    <string name="upload_failure">Upload Failure</string>
+    <string name="uploading">Uploading</string>
+    <string name="upload_resume">Resume(1/2)...</string>
+    <string name="upload_header">Head Photo And Signature(2/2)...</string>
+    <string name="remember_account">Remember account</string>
+    <string name="chinese_name">Chinese name only can have China characters</string>
+    <string name="leave_comment">Leave Comment</string>
+    <string name="profile">Profile</string>
+    <string name="no_search_result_front">No resource found about</string>
+    <string name="no_more_data">No more data for display, please try to create profiles</string>
+    <string name="no_search_result_end">selected condition</string>
+    <string name="submit_information">Submit Information</string>
+    <string name="sorry_for_crash">Sorry, application comes out some problems, will close later</string>
+    <string name="exit_can_not_came_back">Do you confirm to exit?</string>
+    <string name="exit_can_not_came_back_content">It will can\'t come back to this page after exit.</string>
+    <string name="take_photo_note">Note: Please take photo with PAD portrait and keep camera on the top</string>
+    <string name="comment_max_length">The comment length should within 800 characters</string>
+    <string name="please_sign_name_there">Signature</string>
+    <string name="email_format_invalid">Please input valid email address</string>
+    <string name="regulation_clean_signature">Clean Signature</string>
+    <string name="delay_seconds_exit">Please put the device back in place
+        and the system will exit after %1$d seconds</string>
+
+    <integer name="comment_max_length">800</integer>
+</resources>

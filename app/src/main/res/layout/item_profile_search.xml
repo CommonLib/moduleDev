@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/search_cv"
+    android:layout_width="@dimen/width_304"
+    android:layout_height="@dimen/height_312"
+    android:background="@mipmap/submitted_bg_card"
+    android:paddingLeft="@dimen/space_15"
+    android:paddingRight="@dimen/space_15"
+    android:paddingTop="@dimen/space_10"
+    android:paddingBottom="@dimen/space_10"
+    android:layout_margin="@dimen/space_13"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/search_ll_profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="@dimen/width_103"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_marginTop="@dimen/space_60"
+                android:id="@+id/search_sdv_header"
+                android:layout_width="@dimen/width_103"
+                android:layout_height="@dimen/height_147"
+                android:layout_gravity="center_vertical"
+                app:failureImage="@mipmap/default_photo"
+                app:fadeDuration="100"
+                app:placeholderImage="@mipmap/loading_header"/>
+
+            <!--对勾部分-->
+            <FrameLayout
+                android:layout_marginTop="@dimen/space_15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/search_btn_edit"
+                    android:text="@string/search_edit_assign"
+                    android:layout_width="@dimen/width_103"
+                    android:layout_height="@dimen/height_30"
+                    style="@style/login_button"
+                    android:textSize="12sp"
+                    android:background="@drawable/selector_button_create_profile"/>
+
+                <Button
+                    android:id="@+id/search_btn_assigned"
+                    android:layout_width="@dimen/width_103"
+                    android:layout_height="@dimen/height_30"
+                    style="@style/login_button"
+                    android:textSize="12sp"
+                    android:text="@string/search_add_recruit"
+                    android:visibility="gone"/>
+
+            </FrameLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:paddingLeft="@dimen/space_30"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/search_ll_line"
+                android:layout_marginTop="0dp">
+
+                <TextView
+                    style="@style/search_text_view_title"
+                    android:text="@string/search_candidate_cn_name"/>
+
+                <View
+                    android:layout_marginTop="@dimen/space_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/red_E3"/>
+
+                <TextView
+                    android:id="@+id/search_tv_cn_name"
+                    style="@style/search_text_view_content"
+                    android:text="@string/search_not_filled"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/search_ll_line">
+
+                <TextView
+                    style="@style/search_text_view_title"
+                    android:text="@string/search_candidate_en_name"/>
+
+                <View
+                    android:layout_marginTop="@dimen/space_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/red_E3"/>
+
+                <TextView
+                    android:id="@+id/search_tv_en_name"
+                    style="@style/search_text_view_content"
+                    android:text="@string/search_not_filled"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/search_ll_line">
+
+                <TextView
+                    style="@style/search_text_view_title"
+                    android:text="@string/search_candidate_phone"/>
+
+
+                <View
+                    android:layout_marginTop="@dimen/space_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/red_E3"/>
+
+                <TextView
+                    android:id="@+id/search_tv_phone"
+                    style="@style/search_text_view_content"
+                    android:text="@string/search_not_filled"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/search_ll_line">
+
+                <TextView
+                    style="@style/search_text_view_title"
+                    android:text="@string/search_candidate_position"/>
+
+                <View
+                    android:layout_marginTop="@dimen/space_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/red_E3"/>
+
+                <TextView
+                    android:id="@+id/search_tv_candidate_position"
+                    style="@style/search_text_view_content"
+                    android:text="@string/search_not_filled"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/search_ll_line">
+
+                <TextView
+                    style="@style/search_text_view_title"
+                    android:text="@string/search_candidate_interview_date"/>
+
+                <View
+                    android:layout_marginTop="@dimen/space_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/red_E3"/>
+
+                <TextView
+                    android:id="@+id/search_tv_interview_date"
+                    style="@style/search_text_view_content"
+                    android:text="@string/search_not_filled"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+

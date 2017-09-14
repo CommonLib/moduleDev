@@ -1,0 +1,250 @@
+<resources xmlns:tools="http://schemas.android.com/tools"
+           tools:ignore="MissingTranslation">
+    <string name="app_name">eApplication</string>
+
+    <!--登录界面-->
+    <string name="login">登录</string>
+    <string name="login_create_profile">创建简历</string>
+    <string name="login_for_candidate">(候选人)</string>
+    <string name="login_input_username">请输入用户名</string>
+    <string name="login_input_password">请输入密码</string>
+    <string name="login_recruiter">面试官/前台登录</string>
+    <string name="login_language_cn">中文</string>
+    <string name="login_language_en">English</string>
+    <string name="login_username_can_not_null">用户名不能为空</string>
+    <string name="login_password_can_not_null">密码不能为空</string>
+    <string name="login_account_not_exit">账号不存在</string>
+    <string name="login_password_not_correct">密码错误</string>
+
+    <!--拍照页面-->
+    <string name="photo_take_photo">请拍一张ID头像照片</string>
+
+    <!--确认页面-->
+    <string name="photo_retake">重拍</string>
+    <string name="photo_use_photo">使用</string>
+
+    <!--信息页面-->
+    <string name="info_head_company_name_cn">普华永道信息技术（上海）有限公司</string>
+    <string name="info_head_company_name_en">PricewaterhouseCoopers Information Technologies(ShangHai) Co.,Ltd.</string>
+    <string name="info_notes_remark">备注： *标注为必填项</string>
+    <string name="info_base_information">基 本 信 息</string>
+    <string name="info_chinese_name">*中文姓名:</string>
+    <string name="info_english_name">*英文名字:</string>
+    <string name="info_gender_male">先生</string>
+    <string name="info_gender_female">女士</string>
+    <string name="info_date_of_birth">*出生年月:</string>
+    <string name="info_marital_status">*婚姻状况:</string>
+    <string name="info_marital_status_married">已婚</string>
+    <string name="info_marital_status_single">单身</string>
+    <string name="info_passport_no">护照号码:</string>
+    <string name="info_identity_card">*身份证号码:</string>
+    <string name="info_country">Country:</string>
+    <string name="info_academic_degree">*学历:</string>
+    <string name="info_academic_degree_college">大专</string>
+    <string name="info_academic_degree_bachelor">本科</string>
+    <string name="info_academic_degree_master">硕士</string>
+    <string name="info_academic_degree_doctorate">博士</string>
+    <string name="info_academic_degree_doctorate_senior">博士后</string>
+    <string name="info_graduate_school">*毕业院校:</string>
+    <string name="info_graduate_date">毕业时间:</string>
+    <string name="info_language">*外语（英语、日语、其他中必须要选择一个）:</string>
+    <string name="info_language_english">英语:</string>
+    <string name="info_language_excellent">精通</string>
+    <string name="info_language_good">熟练</string>
+    <string name="info_language_fair">掌握</string>
+    <string name="info_language_poor">了解</string>
+    <string name="info_language_tem_8">TEM-8</string>
+    <string name="info_language_tem_4">TEM-4</string>
+    <string name="info_language_cet_6">CET-6</string>
+    <string name="info_language_cet_4">CET-4</string>
+    <string name="info_language_japanese">日语:</string>
+    <string name="info_language_japanese_level1">日语1级</string>
+    <string name="info_language_japanese_level2">日语2级</string>
+    <string name="info_language_japanese_level3">日语3级</string>
+    <string name="info_language_others">其他:</string>
+    <string name="info_major">*所学专业:</string>
+    <string name="info_email">*Email:</string>
+    <string name="info_mobile">*移动电话:</string>
+    <string name="info_telephone">家庭电话:</string>
+    <string name="info_current_address">*现住址:</string>
+    <string name="info_post_code">邮编:</string>
+    <string name="info_emergency_contact">*紧急联系人:</string>
+    <string name="info_relationship">*关系:</string>
+    <string name="info_telephone_no">*联系电话:</string>
+    <string name="info_medical_history">*有无病史:</string>
+    <string name="info_yes">有</string>
+    <string name="info_no">无</string>
+    <string name="info_employee_referral">*是否通过推荐:</string>
+    <string name="info_yes_referrer_name">是，推荐人姓名</string>
+    <string name="info_has_friend_pwc">*是否有亲属或朋友在普华永道就职:</string>
+    <string name="info_yes_friend_name">是，亲属或朋友的姓名</string>
+    <string name="info_hobbies">个人爱好或者特长:</string>
+    <string name="info_take_service">服役情况:</string>
+
+    <string name="info_position_information">职 位 信 息</string>
+    <string name="info_position_applied_for">*应聘职位:</string>
+    <string name="info_working_experience">*工作年限:</string>
+    <string name="info_years">年</string>
+    <string name="info_month">月</string>
+    <string name="info_day">日</string>
+    <string name="info_recruitment_channel">*招聘来源:</string>
+    <string name="info_channel_headhunting">猎头</string>
+    <string name="info_51job">51job</string>
+    <string name="info_zhilian">智联招聘</string>
+    <string name="info_employee">员工推荐</string>
+    <string name="info_wechat">WeChat</string>
+    <string name="info_date_available">*最早可入职时间:</string>
+
+    <string name="info_work_experience">工 作 经 历（请从最近的工作开始填写）</string>
+    <string name="info_company_name">*公司名称:</string>
+    <string name="info_dates_from_to">*起止时间:</string>
+    <string name="info_contact_no">*公司电话:</string>
+    <string name="info_position">*担任职务:</string>
+    <string name="info_leaving_reasons">*离职原因:</string>
+    <string name="info_referee">*证明人:</string>
+    <string name="info_referee_no">*联系电话:</string>
+    <string name="info_next_step">下一步</string>
+    <string name="info_rights">China Service Delivery Center All rights reserved</string>
+    <string name="toast_pls_input">请填写</string>
+    <string name="toast_pls_choose">请选择</string>
+    <string name="toast_pls_choose_gender">请选择"性别"</string>
+    <string name="toast_content">中的内容</string>
+    <string name="country">中国</string>
+    <string name="alert_dialog_message">请填写所有带*的内容</string>
+    <string name="alert_dialog_message_regulation">请确认同意录用员工规定并且签字</string>
+    <string name="alert_dialog_message_success">请将设备还至前台</string>
+    <string name="submit_failed">提交失败</string>
+    <string name="submit_success">提交成功</string>
+    <string name="confirm">确定</string>
+    <string name="loading">正在加载</string>
+
+
+    <!--员工规定页面-->
+    <string name="regulation_title_cn">普华永道信息技术（上海）有限公司录用员工规定</string>
+    <string name="regulation_title_en">PricewaterhouseCoopers Information Technologies Employment Regulation</string>
+    <string name="regulation_body_header">In order to hire the qualified employees and maintain the good image of PricewaterhouseCoopers Information Technologies (Shanghai) Co., Ltd. (the firm), all new hires should comply with the following employment regulation which are enacted according to China related laws and regulations:\n
+        为确保公司员工队伍的素质，维护公司的良好信誉，根据相关法律，特制定本规定：</string>
+    <string name="regulation_title1_health">1. Health 身体条件</string>
+    <string name="regulation_health_body1">被录用人员必须接受指定医院的入职体检，且报告结果显示合格，并能根据公司各类工作性质的要求从事不同的工作。\n
+        The new hires should go to the assigned hospital to take the physical check, which result should show that they are eligible to take the job according to the different requirments of the positions.</string>
+    <string name="regulation_health_body2">被录用人员不得隐瞒患有或曾患有精神类疾病，或隐瞒因疾病引起的或先天性的人体器官缺陷及传染病等疾病。\n
+        The new hires can\'t hide any Psychological diseases, any infectious disease or any human organs defect caused by a disease or the congenital.</string>
+
+    <string name="regulation_title2_morality">2. Morality 品德要求</string>
+    <string name="regulation_morality_body1">被录用人员必须品行端正、诚实守信，并严格遵守公司各项规章制度和国家法律法规。\n
+        Employees must not only be honest and faithful, but also comply with the policies of the firm and the laws of the country.</string>
+    <string name="regulation_morality_body2">被录用人员不得隐瞒曾受过行政处分、治安处罚和刑事处罚的经历。\n
+        Employees can\'t hide the experiences of any administrative penalty, security punishment or criminal punishment.</string>
+
+
+    <string name="regulation_title3_education_work">3. Education and Working Experiences  学历要求和工作经历</string>
+    <string name="regulation_education_work_body1">被录用人员的学历应符合其应聘岗位的专业要求。\n
+        The education of the new hires is qualified with the requirements of the job position they apply for.</string>
+    <string name="regulation_education_work_body2">被录用人员不得隐瞒、伪造、编造其学历、职称、资格证书、工作经历及进公司时的体检报告。\n
+        The new hires can\'t hide, forge or falsify their education certificates, professional qualification certificates, working experiences or the physical check report of new hires.</string>
+    <string name="regulation_education_work_body3">被录用人员不得隐瞒其与原任职单位签署过不竞争协议、保密协议的记录。\n
+        The new hires can\'t hide the facts that they signed the Non-Competing Agreement or the Confidentiality Agreement with the former employers.</string>
+
+    <string name="regulation_title4_Explanation">4. Enactment &#038; Explanation  制定和解释 </string>
+    <string name="regulation_Explanation_body1">本规定由公司人力资源部制定并负责解释。\n
+        This regulation was enacted and can be explained by HR Team of the firm.</string>
+
+    <string name="regulation_declaration">Declaration\n
+        声明</string>
+    <string name="regulation_declaration_body1">I hereby certify all of the statements made on the employment application form are true and complete and I understand that omission or misrepresentation of any fact may result in refusal of employment or immediate dismissal.\n
+        本人在此保证，本人在此职位申请表中填写的所有情况均属实和完整。由于情况遗漏或失实可能导致的申请被拒绝，本人表示理解。</string>
+    <string name="regulation_declaration_body2">I recognize that in connection with employment with PricewaterhouseCoopers Information Technologies (Shanghai) Co., Ltd. I may be the subject of a background enquiry by PricewaterhouseCoopers Information Technologies (Shanghai) Co., Ltd. and I hereby authorize the same.\n
+        本人清楚并认可，在向普华永道信息技术（上海）有限公司申请职位的过程中，本人可能成为相关背景核实的调查对象。</string>
+    <string name="regulation_signed">Signed (签名)	:	</string>
+    <string name="regulation_date">Date (日期)	:	</string>
+    <string name="regulation_submit">提交</string>
+
+    <!--简历检索页面-->
+    <string name="search_candidate_cn_name">中文姓名:</string>
+    <string name="search_candidate_en_name">英文名字:</string>
+    <string name="search_candidate_phone">手机:</string>
+    <string name="search_candidate_email">邮箱:</string>
+    <string name="search_candidate_interview_date">面试日期:</string>
+    <string name="search_candidate_recruiter">面试官:</string>
+    <string name="search_candidate_position">应聘职位</string>
+    <string name="search_candidate_status">录用状态：</string>
+    <string name="search_add_recruit">添加面试官</string>
+    <string name="search_edit_assign">编辑面试官</string>
+    <string name="search">搜索</string>
+    <string name="search_submitted_profile">已提交的简历</string>
+    <string name="search_not_filled">未填写</string>
+    <string name="search_load_more_failed">加载失败，请检查网络连接</string>
+    <string name="search_load_more_success">加载成功</string>
+    <string name="search_load_more_loading">正在加载</string>
+    <string name="search_load_more_no_more">没有更多数据了</string>
+    <string name="search_load_failed">加载失败</string>
+    <string name="search_pull_refresh">下拉刷新</string>
+    <string name="search_pull_drop_refresh">松开刷新</string>
+    <string name="search_pull_loading">正在刷新</string>
+    <string name="search_pull_complete">刷新完成</string>
+    <string name="cancel">取消</string>
+    <string name="recruiter_exit">面试官已经添加</string>
+    <string name="load_state_empty">没有更多数据</string>
+    <string name="load_state_error">加载失败</string>
+    <string name="load_state_loading">正在加载</string>
+
+    <!--添加意见页面-->
+    <string name="comment">意见</string>
+    <string name="comment_offer">雇佣</string>
+    <string name="comment_next_ground">进入到下一轮</string>
+    <string name="comment_keep_file">保留</string>
+    <string name="comment_reject">拒绝</string>
+    <string name="comment_interviewer">面试人</string>
+    <string name="comment_level">职位</string>
+    <string name="alert_dialog_message_comment">请完成填写面试意见</string>
+    <string name="today">今天</string>
+    <string name="yesterday">昨天</string>
+    <string name="from">从</string>
+    <string name="example">例:1990/05/25</string>
+    <string name="example_experience_from">例:2008/04/20</string>
+    <string name="example_experience_to">例:2011/11/25</string>
+    <string name="to">到</string>
+    <string name="search_cn_name">搜中文姓名</string>
+    <string name="search_cn_name_pinyin">搜中文拼音</string>
+    <string name="search_en_name">搜英文姓名</string>
+    <string name="search_phone">搜手机号</string>
+    <string name="search_date">搜面试日期</string>
+    <string name="search_email">搜邮箱</string>
+    <string name="search_status">搜候选人状态</string>
+    <string name="recruiter_name">名字</string>
+    <string name="recruiter_guid">GUID</string>
+    <string name="recruiter_department">部门</string>
+    <string name="no_available_recruiter">没有可用的面试候选人</string>
+    <string name="no_sd_card">没有可用的外部储存空间，请插入后重试</string>
+    <string name="upload_success">上传成功</string>
+    <string name="upload_failure">上传失败</string>
+    <string name="uploading">正在上传</string>
+    <string name="upload_resume">简历(1/2)...</string>
+    <string name="upload_header">头像以及签名(2/2)...</string>
+    <string name="remember_account">记住账号</string>
+    <string name="chinese_name">中文姓名中只能含有中文字符</string>
+    <string name="leave_comment">提交评价</string>
+    <string name="profile">简历</string>
+    <string name="no_search_result_front">没有找到与</string>
+    <string name="no_more_data">没有更多的数据了，请尝试提交简历</string>
+    <string name="no_search_result_end">有关的搜索结果</string>
+    <string name="submit_information">提示信息</string>
+    <string name="sorry_for_crash">抱歉，程序遇到一些问题，即将关闭</string>
+    <string name="exit_can_not_came_back">您确定要退出吗？</string>
+    <string name="exit_can_not_came_back_content">退出后将不能再次返回此页面</string>
+    <string name="take_photo_note">提示：请将PAD竖直、摄像头朝上拍摄</string>
+    <string name="comment_max_length">最长不超过300字</string>
+
+    <integer name="comment_max_length">300</integer>
+
+    <string name="response_no_connection">{
+    \"data\": {},
+    \"message\": \"no connect\",
+    \"resultCode\": -3
+    }</string>
+    <string name="please_sign_name_there">签字</string>
+    <string name="email_format_invalid">请输入正确的邮箱地址</string>
+    <string name="regulation_clean_signature">清除签名</string>
+    <string name="delay_seconds_exit">请将设备放回原处，系统将会在%1$d秒后退出</string>
+
+</resources>

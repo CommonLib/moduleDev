@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="api_error_description">
+        <item>Success</item>
+        <item>Wrong password</item>
+        <item>Account not exit</item>
+        <item>Create candidate failed, already exit in database, please try to submit again</item>
+        <item>Unknown exception</item>
+        <item>Upload head photo failed, please try again later</item>
+        <item>undefined code</item>
+        <item>No more data</item>
+        <item>Can\'t found candidate</item>
+        <item>Can\'t found employee</item>
+        <item>Can\'t found candidates according to your condition</item>
+        <item>Login states error, please try to login again</item>
+        <item>Can\'t found recruiter according to your condition</item>
+        <item>No candidate found</item>
+        <item>Error occur when try to send data, please restart application</item>
+        <item>Can\'t found employee information</item>
+        <item>Error occur when try to upload log.</item>
+        <!--注销失败-->
+        <item>""</item>
+    </string-array>
+</resources>

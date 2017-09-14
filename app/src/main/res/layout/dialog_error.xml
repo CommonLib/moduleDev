@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="@dimen/width_535"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/space_28"
+        android:paddingLeft="@dimen/space_20"
+        android:paddingTop="@dimen/space_28"
+        android:text="@string/submit_information"
+        android:textColor="@color/red_BD"
+        android:textSize="@dimen/font_24"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/red_BD"/>
+
+    <TextView
+        android:id="@+id/dialog_tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_15"
+        android:paddingLeft="@dimen/space_20"
+        android:text="@string/sorry_for_crash"
+        android:textColor="@color/black_3f"
+        android:textSize="@dimen/font_24"
+        />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/space_25"
+        android:background="@color/red_BD"/>
+
+    <TextView
+        android:id="@+id/dialog_btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_80"
+        android:gravity="center"
+        android:text="@string/confirm"
+        android:textColor="@color/black_3f80"
+        android:textSize="@dimen/font_24"/>
+</LinearLayout>

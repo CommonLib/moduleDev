@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:layout_marginTop="@dimen/space_10"
+              android:layout_marginBottom="@dimen/space_10"
+              android:weightSum="3">
+
+    <TextView
+        android:id="@+id/candidate_tv_name"
+        style="@style/profile_search_recruiter"
+        android:text="example">
+    </TextView>
+
+    <TextView
+        android:id="@+id/candidate_tv_guid"
+        style="@style/profile_search_recruiter"
+        android:text="example059">
+    </TextView>
+
+    <TextView
+        android:id="@+id/candidate_tv_department"
+        style="@style/profile_search_recruiter"
+        android:text="IMAT">
+    </TextView>
+
+</LinearLayout>

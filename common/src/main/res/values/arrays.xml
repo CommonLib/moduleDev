@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Api错误对应的描述-->
+    <string-array name="api_error_description">
+        <item>成功</item>
+        <item>密码错误</item>
+        <item>账户不存在</item>
+        <item>已存在的候选人，创建失败</item>
+        <item>未知插入异常</item>
+        <item>上传头像失败，请重新提交</item>
+        <item>未定义的code</item>
+        <item>没有更多数据了</item>
+        <item>找不到对应的候选人</item>
+        <item>没有找到此员工</item>
+        <item>没有找到符合条件的候选人</item>
+        <item>登录状态异常，请重新登录</item>
+        <item>没有找到与之对应的面试官</item>
+        <item>找不到候选人</item>
+        <item>发送数据错误</item>
+        <item>找不到员工信息</item>
+        <item>日志上传错误</item>
+        <!--注销失败-->
+        <item>""</item>
+    </string-array>
+</resources>

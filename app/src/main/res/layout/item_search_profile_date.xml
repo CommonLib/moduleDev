@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+          android:layout_marginTop="@dimen/space_15"
+          android:layout_marginBottom="@dimen/space_2"
+          android:id="@+id/profile_tv_date"
+          android:textSize="@dimen/font_larger"
+          android:textColor="@color/red_E3"
+          android:gravity="center_vertical"
+          android:layout_marginLeft="@dimen/space_13"
+          android:text="2016/7/20"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/profile_tv_date_height">
+
+</TextView>

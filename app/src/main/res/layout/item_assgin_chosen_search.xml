@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/height_tall"
+              android:focusable="true"
+              android:focusableInTouchMode="true"
+              android:gravity="center_vertical"
+              android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/chosen_et_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:hint="@string/search"
+        android:imeOptions="actionSearch|flagNoExtractUi"
+        android:padding="@dimen/space_4"
+        android:singleLine="true"
+        android:textSize="@dimen/font_large"/>
+</LinearLayout>

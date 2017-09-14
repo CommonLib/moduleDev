@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="request_time_out">Request timeout, please try later</string>
+    <string name="no_connection">Request failed, please try later</string>
+    <string name="connection_failed">Connection failed</string>
+    <string name="no_found_result_code">Invalid resultCode</string>
+    <string name="server_error">Server error</string>
+    <string name="client_error">Request error</string>
+    <string name="redirect">redirect</string>
+    <string name="server_deal_request">Server is dealing with request</string>
+    <string name="not_found_url">Invalid access to address</string>
+    <string name="no_found_host">not found host address</string>
+    <string name="not_connect_server">Request failed, Unknown error</string>
+</resources>

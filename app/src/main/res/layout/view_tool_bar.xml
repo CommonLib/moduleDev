@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/common_abl_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/common_tl_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:theme="@style/ToolBarTheme"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <TextView
+                android:id="@+id/common_tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_18"/>
+
+            <FrameLayout
+                android:layout_width="@dimen/width_300"
+                android:layout_height="match_parent"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="@dimen/space_14">
+
+                <TextView
+                    android:id="@+id/common_tv_right_des"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/space_10"
+                    android:paddingRight="@dimen/space_10"
+                    android:textColor="@color/red_E3"
+                    android:textSize="@dimen/font_20"
+                    android:visibility="gone"/>
+
+                <ImageView
+                    android:id="@+id/common_tv_right_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:paddingLeft="@dimen/space_10"
+                    android:paddingRight="@dimen/space_10"
+                    android:src="@mipmap/submitted_profiles_search"
+                    android:visibility="gone"/>
+
+                <LinearLayout
+                    android:id="@+id/toolbar_ll_search"
+                    android:layout_width="@dimen/width_200"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/search_et_search"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="@string/search"
+                        android:imeOptions="flagNoExtractUi"
+                        android:singleLine="true"/>
+
+                    <TextView
+                        android:id="@+id/search_tv_delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/space_10"
+                        android:paddingRight="@dimen/space_10"
+                        android:text="×"
+                        android:textColor="@color/red_E3"
+                        android:textSize="@dimen/font_30"/>
+                </LinearLayout>
+
+            </FrameLayout>
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+
+</merge>

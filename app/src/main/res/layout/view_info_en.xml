@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:focusable="true"
+              android:focusableInTouchMode="true"
+              android:orientation="vertical"
+              android:layout_marginTop="?attr/actionBarSize">
+
+    <!--头部-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/info_header_height">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/info_iv_header"
+            android:layout_width="@dimen/info_header_width"
+            android:layout_height="@dimen/info_header_height"
+            app:failureImage="@mipmap/default_photo"
+            app:placeholderImage="@mipmap/loading_header"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/info_head_company_name_cn"
+                android:textSize="@dimen/font_largest"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:text="@string/info_head_company_name_en"
+                android:textSize="@dimen/font_larger_more"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_20"
+        android:text="@string/info_notes_remark"
+        android:textColor="@color/red_E3"
+        />
+
+    <!--基本信息-->
+    <TextView
+        style="@style/info_section_title"
+        android:text="@string/info_base_information"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_15"
+        android:orientation="horizontal">
+        <!--基础左侧部分-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingRight="@dimen/space_27">
+            <!--中文姓名-->
+            <TextView
+                android:id="@+id/info_tv_chinese_name"
+                style="@style/info_common_description_en"
+                android:layout_marginTop="0dp"
+                android:text="@string/info_chinese_name"
+                />
+
+            <EditText
+                android:id="@+id/info_et_chinese_name"
+                style="@style/info_common_edit_text"/>
+            <!--性别选择-->
+            <RadioGroup
+                android:id="@+id/info_rg_gender"
+                style="@style/info_common_radio_group">
+
+                <RadioButton
+                    android:id="@+id/info_rb_gender_male"
+                    style="@style/info_common_radio_button"
+                    android:text="@string/info_gender_male"
+                    />
+
+                <RadioButton
+                    android:id="@+id/info_rb_gender_female"
+                    style="@style/info_common_radio_button"
+                    android:text="@string/info_gender_female"/>
+            </RadioGroup>
+            <!--英文姓名-->
+            <TextView
+                android:id="@+id/info_tv_english_name"
+                style="@style/info_common_description_en"
+                android:text="@string/info_english_name"/>
+
+            <EditText
+                android:id="@+id/info_et_english_name"
+                style="@style/info_common_edit_text"/>
+
+            <!--出生日期-->
+            <TextView
+                android:id="@+id/info_tv_date_of_birth"
+                style="@style/info_common_description_en"
+                android:text="@string/info_date_of_birth"/>
+
+            <EditText
+                android:id="@+id/info_et_date_of_birth"
+                style="@style/info_common_edit_text_date"/>
+
+            <RadioGroup
+                android:id="@+id/info_rg_marital_status"
+                style="@style/info_common_radio_group"
+                android:layout_marginTop="@dimen/space_20">
+                <!--婚姻状况-->
+                <TextView
+                    android:id="@+id/info_tv_marital_status"
+                    style="@style/info_common_description_en"
+                    android:layout_width="wrap_content"
+                    android:layout_marginRight="@dimen/space_40"
+                    android:layout_marginTop="0dp"
+                    android:text="@string/info_marital_status"/>
+
+                <RadioButton
+                    android:id="@+id/info_rb_marital_status_married"
+                    style="@style/info_common_radio_button"
+                    android:text="@string/info_marital_status_married"/>
+
+                <RadioButton
+                    android:id="@+id/info_rb_marital_status_single"
+                    style="@style/info_common_radio_button"
+                    android:text="@string/info_marital_status_single"/>
+            </RadioGroup>
+
+            <!--护照号码-->
+            <TextView
+                android:id="@+id/info_tv_passport_no"
+                style="@style/info_common_description_en"
+                android:text="@string/info_passport_no"/>
+
+            <EditText
+                android:id="@+id/info_et_passport_no"
+                style="@style/info_common_edit_text"
+                android:digits="0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"/>
+
+            <!--国家-->
+            <TextView
+                android:id="@+id/info_tv_country"
+                style="@style/info_common_description_en"
+                android:text="@string/info_country"/>
+
+            <EditText
+                android:id="@+id/info_et_country"
+                style="@style/info_common_edit_text"/>
+
+            <!--邮箱-->
+            <TextView
+                android:id="@+id/info_tv_email"
+                style="@style/info_common_description_en"
+                android:text="@string/info_email"/>
+
+            <EditText
+                android:id="@+id/info_et_email"
+                style="@style/info_common_edit_text"/>
+
+            <!--移动电话-->
+            <TextView
+                android:id="@+id/info_tv_mobile"
+                style="@style/info_common_description_en"
+                android:text="@string/info_mobile"/>
+
+            <EditText
+                android:id="@+id/info_et_mobile"
+                style="@style/info_common_edit_text"
+                android:inputType="phone"/>
+
+            <!--现住址-->
+            <TextView
+                android:id="@+id/info_tv_current_address"
+                style="@style/info_common_description_en"
+                android:text="@string/info_current_address"/>
+
+            <EditText
+                android:id="@+id/info_et_current_address"
+                style="@style/info_common_edit_text"/>
+
+            <!--个人爱好-->
+            <TextView
+                android:id="@+id/info_tv_hobbies"
+                style="@style/info_common_description_en"
+                android:layout_width="wrap_content"
+                android:text="@string/info_hobbies"/>
+
+            <EditText
+                android:id="@+id/info_et_hobbies"
+                style="@style/info_common_edit_text"/>
+        </LinearLayout>
+
+        <!--基础右侧部分-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/space_27">
+            <!--学历-->
+            <TextView
+                android:id="@+id/info_tv_academic_degree"
+                style="@style/info_common_description_en"
+                android:layout_marginTop="0dp"
+                android:text="@string/info_academic_degree"/>
+
+            <LinearLayout
+                android:id="@+id/info_rg_academic_degree"
+                style="@style/info_common_radio_group"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/info_rb_academic_degree_college"
+                        style="@style/info_common_radio_button"
+                        android:text="@string/info_academic_degree_college"/>
+
+                    <RadioButton
+                        android:id="@+id/info_rb_academic_degree_bachelor"
+                        style="@style/info_common_radio_button"
+                        android:text="@string/info_academic_degree_bachelor"/>
+
+                    <RadioButton
+                        android:id="@+id/info_rb_academic_degree_master"
+                        style="@style/info_common_radio_button"
+                        android:text="@string/info_academic_degree_master"/>
+                </LinearLayout>
+
+                <RadioButton
+                    android:id="@+id/info_rb_academic_degree_doctorate"
+                    style="@style/info_common_radio_button"
+                    android:layout_marginTop="@dimen/space_10"
+                    android:text="@string/info_academic_degree_doctorate"/>
+            </LinearLayout>
+
+            <!--毕业院校-->
+            <TextView
+                android:id="@+id/info_tv_graduate_school"
+                style="@style/info_common_description_en"
+                android:text="@string/info_graduate_school"/>
+
+            <EditText
+                android:id="@+id/info_et_graduate_school"
+                style="@style/info_common_edit_text"/>
+
+            <!--毕业时间-->
+            <TextView
+                style="@style/info_common_description_en"
+                android:inputType="date"
+                android:text="@string/info_graduate_date"/>
+
+            <EditText
+                android:id="@+id/info_et_graduate_date"
+                style="@style/info_common_edit_text_date"/>
+
+            <!--所学专业-->
+            <TextView
+                android:id="@+id/info_tv_major"
+                style="@style/info_common_description_en"
+                android:text="@string/info_major"/>
+
+            <EditText
+                android:id="@+id/info_et_major"
+                style="@style/info_common_edit_text"/>
+
+            <!--外语水平-->
+            <TextView
+                android:id="@+id/info_tv_language"
+                style="@style/info_common_description_en"
+                android:text="@string/info_language"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/space_5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/info_tv_english_language"
+                    style="@style/info_common_description_en"
+                    android:layout_width="wrap_content"
+                    android:text="@string/info_language_english"
+                    />
+
+                <RadioGroup
+                    android:id="@+id/info_rg_english_language"
+                    style="@style/info_common_radio_group">
+
+                    <RadioButton
+                        android:id="@+id/info_rb_language_excellent"
+                        style="@style/info_common_radio_button"
+                        android:text="@string/info_language_excellent"/>
+
+                    <RadioButton
+                        android:id="@+id/info_rb_language_good"
+                        style="@style/info_common_radio_button"
+                        android:text="@string/info_language_good"/>
+
+                    <RadioButton
+                        android:id="@+id/info_rb_language_fair"
+                        style="@style/info_common_radio_button"
+                        android:text="@string/info_language_fair"/>
+
+                    <RadioButton
+                        android:id="@+id/info_rb_language_poor"
+                        style="@style/info_common_radio_button"
+                        android:text="@string/info_language_poor"/>
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/info_tv_japanese_language"
+                    style="@style/info_common_description_en"
+                    android:layout_width="wrap_content"
+                    android:text="@string/info_language_japanese"
+                    />
+
+                <RadioGroup
+                    android:id="@+id/info_rg_japanese_language"
+                    style="@style/info_common_radio_group">
+
+                    <RadioButton
+                        android:id="@+id/info_rb_language_jap_excellent"
+                        style="@style/info_common_radio_button"
+                        android:text="@string/info_language_excellent"/>
+
+                    <RadioButton
+                        android:id="@+id/info_rb_language_jap_good"
+                        style="@style/info_common_radio_button"
+                        android:text="@string/info_language_good"/>
+
+                    <RadioButton
+                        android:id="@+id/info_rb_language_jap_fair"
+                        style="@style/info_common_radio_button"
+                        android:text="@string/info_language_fair"/>
+
+                    <RadioButton
+                        android:id="@+id/info_rb_language_jap_poor"
+                        style="@style/info_common_radio_button"
+                        android:text="@string/info_language_poor"/>
+                </RadioGroup>
+
+                <!--语言其他-->
+                <TextView
+                    android:id="@+id/info_tv_language_others"
+                    android:layout_marginTop="@dimen/space_10"
+                    style="@style/info_common_description_en"
+                    android:layout_width="wrap_content"
+                    android:text="@string/info_language_others"/>
+
+                <EditText
+                    android:id="@+id/info_et_language_others"
+                    style="@style/info_common_edit_text"/>
+            </LinearLayout>
+
+            <!--家庭电话-->
+            <TextView
+                android:id="@+id/info_tv_telephone"
+                style="@style/info_common_description_en"
+                android:text="@string/info_telephone"/>
+
+            <EditText
+                android:id="@+id/info_et_telephone"
+                style="@style/info_common_edit_text"
+                android:inputType="phone"/>
+
+            <!--邮编-->
+            <TextView
+                android:id="@+id/info_tv_post_code"
+                style="@style/info_common_description_en"
+                android:text="@string/info_post_code"/>
+
+            <EditText
+                android:id="@+id/info_et_post_code"
+                style="@style/info_common_edit_text"/>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/space_20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!--有无病史-->
+                <TextView
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="@dimen/space_40"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/info_tv_medical_history"
+                    style="@style/info_common_description_en"
+                    android:text="@string/info_medical_history"/>
+
+                <RadioGroup
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="@dimen/space_40"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/info_rg_medical_history"
+                    style="@style/info_common_radio_group">
+
+                    <RadioButton
+                        android:id="@+id/info_rb_yes_medical_history"
+                        style="@style/info_common_radio_button"
+                        android:text="@string/info_yes"/>
+
+                    <RadioButton
+                        android:layout_marginLeft="@dimen/space_40"
+                        android:id="@+id/info_rb_no_medical_history"
+                        style="@style/info_common_radio_button"
+                        android:text="@string/info_no"/>
+                </RadioGroup>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!--紧急联系人-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <LinearLayout
+            style="@style/info_line_vertical_property"
+            android:layout_marginRight="@dimen/space_47">
+
+            <TextView
+                android:id="@+id/info_tv_emergency_contact"
+                style="@style/info_common_description_en"
+                android:text="@string/info_emergency_contact"/>
+
+            <EditText
+                android:id="@+id/info_et_emergency_contact"
+                style="@style/info_common_edit_text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/info_line_vertical_property"
+            android:layout_marginRight="@dimen/space_47">
+
+            <TextView
+                android:id="@+id/info_tv_relationship"
+                style="@style/info_common_description_en"
+                android:text="@string/info_relationship"/>
+
+            <EditText
+                android:id="@+id/info_et_relationship"
+                style="@style/info_common_edit_text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/info_line_vertical_property"
+            android:layout_marginLeft="@dimen/spacing_small">
+
+            <TextView
+                android:id="@+id/info_tv_telephone_no"
+                style="@style/info_common_description_en"
+                android:text="@string/info_telephone_no"/>
+
+            <EditText
+                android:id="@+id/info_et_telephone_no"
+                style="@style/info_common_edit_text"
+                android:inputType="phone"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--是否通过推荐-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/info_tv_employee_referral"
+            style="@style/info_common_description_en"
+            android:text="@string/info_employee_referral"/>
+
+        <RadioGroup
+            android:id="@+id/info_rg_employee_referral"
+            style="@style/info_common_radio_group"
+            android:layout_marginTop="@dimen/space_10"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/spacing_small"
+            android:weightSum="3">
+
+            <RadioButton
+                android:id="@+id/info_rb_yes_referrer_name"
+                style="@style/info_common_radio_button"
+                android:text="@string/info_yes_referrer_name"/>
+
+            <EditText
+                android:id="@+id/info_et_yes_referrer_name"
+                style="@style/info_common_edit_text"
+                android:layout_width="@dimen/width_218"
+                android:layout_marginRight="@dimen/space_50"
+                android:layout_marginTop="0dp"/>
+
+            <RadioButton
+                android:id="@+id/info_rb_no_referrer_name"
+                style="@style/info_common_radio_button"
+                android:layout_width="0dp"
+                android:layout_marginLeft="@dimen/spacing_small"
+                android:layout_weight="1"
+                android:text="@string/info_no"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <!--是否有亲属在普华就职-->
+    <TextView
+        android:id="@+id/info_tv_has_friend_pwc"
+        style="@style/info_common_description_en"
+        android:layout_width="wrap_content"
+        android:text="@string/info_has_friend_pwc"/>
+
+    <RadioGroup
+        android:id="@+id/info_rg_has_friend_pwc"
+        style="@style/info_common_radio_group"
+        android:layout_marginTop="@dimen/space_10"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/spacing_small"
+        android:weightSum="3">
+
+        <RadioButton
+            android:id="@+id/info_rb_yes_friend_name"
+            style="@style/info_common_radio_button"
+            android:text="@string/info_yes_friend_name"/>
+
+        <EditText
+            android:id="@+id/info_et_yes_friend_name"
+            style="@style/info_common_edit_text"
+            android:layout_width="@dimen/width_218"
+            android:layout_marginRight="@dimen/space_50"
+            android:layout_marginTop="0dp"/>
+
+        <RadioButton
+            android:id="@+id/info_rb_no_friend_name"
+            style="@style/info_common_radio_button"
+            android:layout_width="0dp"
+            android:layout_marginLeft="@dimen/spacing_small"
+            android:layout_weight="1"
+            android:text="@string/info_no"/>
+    </RadioGroup>
+
+    <!--职位信息-->
+    <TextView
+        style="@style/info_section_title"
+        android:layout_marginTop="@dimen/space_40"
+        android:text="@string/info_position_information"
+        />
+
+    <!--应聘职位-->
+    <LinearLayout
+        style="@style/info_line_property">
+
+        <LinearLayout
+            style="@style/info_line_vertical_property"
+            android:paddingRight="@dimen/space_47">
+
+            <TextView
+                android:id="@+id/info_tv_position_applied_for"
+                style="@style/info_common_description_en"
+                android:layout_marginTop="@dimen/space_15"
+                android:text="@string/info_position_applied_for"/>
+
+            <EditText
+                android:id="@+id/info_et_position_applied_for"
+                style="@style/info_common_edit_text"/>
+        </LinearLayout>
+
+        <!--工作年限-->
+        <LinearLayout
+            style="@style/info_line_vertical_property"
+            android:paddingLeft="@dimen/space_27">
+
+            <TextView
+                android:id="@+id/info_tv_working_experience"
+                style="@style/info_common_description_en"
+                android:layout_marginTop="@dimen/space_15"
+                android:text="@string/info_working_experience"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_10"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/info_et_working_experience"
+                    style="@style/info_common_edit_text"
+                    android:layout_width="0dp"
+                    android:inputType="numberDecimal"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    style="@style/info_common_description_en"
+                    android:layout_width="@dimen/width_60"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center"
+                    android:text="@string/info_years"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        style="@style/info_line_property">
+
+        <LinearLayout
+            style="@style/info_line_vertical_property"
+            android:layout_weight="1"
+            android:paddingRight="@dimen/space_27">
+
+            <TextView
+                android:id="@+id/info_tv_recruitment_channel"
+                style="@style/info_common_description_en"
+                android:text="@string/info_recruitment_channel"/>
+
+            <LinearLayout
+                android:id="@+id/info_rg_recruitment_channel"
+                style="@style/info_common_radio_group"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/space_10"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/info_rb_channel_headhunting"
+                        style="@style/info_common_radio_button"
+                        android:text="@string/info_channel_headhunting"/>
+
+                    <RadioButton
+                        android:id="@+id/info_rb_51job"
+                        style="@style/info_common_radio_button"
+                        android:text="@string/info_51job"/>
+
+                    <RadioButton
+                        android:id="@+id/info_rb_employee"
+                        style="@style/info_common_radio_button"
+                        android:text="@string/info_employee"/>
+                </LinearLayout>
+
+                <RadioButton
+                    android:id="@+id/info_rb_wechat"
+                    style="@style/info_common_radio_button"
+                    android:layout_marginTop="@dimen/space_10"
+                    android:text="@string/info_wechat"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/info_rb_others"
+                        style="@style/info_common_radio_button"
+                        android:layout_width="wrap_content"
+                        android:text="@string/info_language_others"/>
+
+                    <EditText
+                        android:layout_marginTop="0dp"
+                        android:id="@+id/info_et_channel_others"
+                        style="@style/info_common_edit_text"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/info_line_vertical_property"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:paddingLeft="@dimen/space_27">
+
+            <TextView
+                android:id="@+id/info_tv_date_available"
+                style="@style/info_common_description_en"
+                android:layout_width="wrap_content"
+                android:text="@string/info_date_available"/>
+
+            <EditText
+                android:focusable="false"
+                android:id="@+id/info_et_date_available"
+                style="@style/info_common_edit_text"
+                android:inputType="date"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--工作经历-->
+    <TextView
+        android:layout_marginTop="@dimen/space_40"
+        style="@style/info_section_title"
+        android:text="@string/info_work_experience"
+        />
+
+    <LinearLayout
+        android:id="@+id/info_ll_work_experience"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <com.pwc.sdc.recruit.widget.WorkExperienceView
+            android:id="@+id/info_we_work_experience1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.pwc.sdc.recruit.widget.WorkExperienceView>
+    </LinearLayout>
+
+
+</LinearLayout>
