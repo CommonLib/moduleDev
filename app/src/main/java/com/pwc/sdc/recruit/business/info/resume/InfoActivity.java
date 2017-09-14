@@ -43,7 +43,7 @@ public class InfoActivity extends ToolBarActivity<InfoPresenter> implements Info
     @Override
     protected void initView() {
         super.initView();
-        setBackButtonEnable(false);
+        setBackButtonEnable(true);
         setActionBarCenterTitle(R.string.login_create_profile);
         setActionBarCenterTextSize(20);
         setActionBarTitleEnable(false);

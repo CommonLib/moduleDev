@@ -37,7 +37,7 @@ public class AddCommentActivity extends ToolBarActivity<AddCommentPresenter> imp
     protected void initView() {
         super.initView();
         mToolRightDes = (TextView) mToolbar.findViewById(R.id.common_tv_right_des);
-        setBackButtonEnable(false);
+        setBackButtonEnable(true);
         setActionBarCenterTitle(R.string.profile);
         setActionBarCenterTextSize(20);
         setActionBarTitleEnable(false);

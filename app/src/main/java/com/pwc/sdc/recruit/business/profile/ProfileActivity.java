@@ -73,7 +73,7 @@ public class ProfileActivity extends ToolBarActivity<ProfilePresenter> implement
         mSearchLlParent.setVisibility(View.GONE);
         mSearchIvIcon.setVisibility(View.VISIBLE);
 
-        setBackButtonEnable(false);
+        setBackButtonEnable(true);
         setActionBarTitleEnable(false);
         setActionBarCenterTextColor(R.color.black_3f);
         setActionBarCenterTextSize(20);
